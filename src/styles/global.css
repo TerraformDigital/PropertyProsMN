@@ -230,6 +230,17 @@ a {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: inherit;
 }
 
 .btn-primary {
@@ -238,8 +249,12 @@ a {
   border: none;
 }
 
-.btn-primary:hover {
+.btn-primary::before {
   background-color: var(--brand-blue-dark);
+}
+
+.btn-primary:hover::before {
+  transform: scale(1);
 }
 
 .btn-secondary {
@@ -258,9 +273,16 @@ a {
   border: 1px solid var(--brand-navy);
 }
 
-.btn-outline:hover {
+.btn-outline::before {
   background-color: var(--bg-tertiary);
+}
+
+.btn-outline:hover {
   color: var(--brand-white);
+}
+
+.btn-outline:hover::before {
+  transform: scale(1);
 }
 
 /* Button on dark backgrounds */
@@ -270,9 +292,16 @@ a {
   border: 1px solid var(--brand-white);
 }
 
-.btn-outline-light:hover {
+.btn-outline-light::before {
   background-color: var(--brand-white);
+}
+
+.btn-outline-light:hover {
   color: var(--brand-navy);
+}
+
+.btn-outline-light:hover::before {
+  transform: scale(1);
 }
 
 .btn-icon {
@@ -532,13 +561,24 @@ a {
    CARDS
    ======================================== */
 .card {
-  background-color: var(--brand-white);
+  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: all var(--transition-base);
 }
 
+/* Checkerboard pattern - every other card has bg */
+.card:nth-child(3n+1),
+.card:nth-child(3n+3) {
+  background-color: var(--brand-white);
+  border-color: var(--border-light);
+}
+
+/* On hover - all cards get the filled style */
 .card:hover {
+  background-color: var(--brand-white);
+  border-color: var(--border-light);
   box-shadow: var(--shadow-lg);
 }
 
@@ -552,6 +592,12 @@ a {
   color: var(--brand-white);
   border-radius: var(--radius-md);
   margin-bottom: 1rem;
+  transition: transform var(--transition-base);
+}
+
+/* Card icon subtle lift on hover */
+.card:hover .card-icon {
+  transform: translateY(-2px);
 }
 
 .card-title {
@@ -575,6 +621,15 @@ a {
   font-weight: var(--font-weight-medium);
   color: var(--brand-navy);
   transition: gap var(--transition-base);
+}
+
+.card-link svg {
+  transition: transform var(--transition-base);
+}
+
+/* Card link arrow slides right on hover */
+.card:hover .card-link svg {
+  transform: translateX(4px);
 }
 
 .card-link:hover {
@@ -709,13 +764,31 @@ a {
 }
 
 .footer-link {
+  position: relative;
+  display: inline-block;
   font-size: 0.875rem;
   color: var(--text-muted);
   transition: color var(--transition-base);
 }
 
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: translateX(-110%);
+  transition: transform 0.3s ease;
+}
+
 .footer-link:hover {
   color: var(--brand-white);
+}
+
+.footer-link:hover::after {
+  transform: translateX(0);
 }
 
 .footer-social {
