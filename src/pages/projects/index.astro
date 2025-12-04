@@ -1,9 +1,43 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Contact from '../../components/home/Contact.astro';
+import { sanityFetch, urlFor } from '../../lib/sanity';
+import { allProjectsQuery, featuredTestimonialsQuery } from '../../lib/queries';
 
 // <!-- SCHEMA: ImageGallery -->
 // <!-- SCHEMA: Portfolio/CreativeWork for each project -->
+
+// Type definitions
+interface SanityProject {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  mainImage: any;
+  category: string;
+  location: string;
+  featured: boolean;
+}
+
+interface SanityTestimonial {
+  _id: string;
+  customerName: string;
+  location: string;
+  quote: string;
+  rating: number;
+  image: any;
+}
+
+// Fetch from Sanity
+let sanityProjects: SanityProject[] = [];
+let sanityTestimonials: SanityTestimonial[] = [];
+
+try {
+  sanityProjects = await sanityFetch<SanityProject[]>(allProjectsQuery) || [];
+  sanityTestimonials = await sanityFetch<SanityTestimonial[]>(featuredTestimonialsQuery) || [];
+} catch (error) {
+  console.error('Error fetching projects from Sanity:', error);
+}
 
 const filterCategories = [
   { id: 'all', label: 'All Projects' },
@@ -12,9 +46,9 @@ const filterCategories = [
   { id: 'contractor', label: 'Contractor' },
 ];
 
-const projects = [
+// Static fallback projects
+const staticProjects = [
   {
-    // <!-- REPLACE: Actual project photo -->
     title: 'Basement Finishing',
     category: 'Residential',
     categoryId: 'residential',
@@ -26,7 +60,6 @@ const projects = [
     href: '/services/drywall-installation',
   },
   {
-    // <!-- REPLACE: Actual project photo -->
     title: 'New Construction Drywall',
     category: 'Residential',
     categoryId: 'residential',
@@ -38,7 +71,6 @@ const projects = [
     href: '/services/drywall-installation',
   },
   {
-    // <!-- REPLACE: Actual project photo -->
     title: 'Office Buildout',
     category: 'Commercial',
     categoryId: 'commercial',
@@ -50,7 +82,6 @@ const projects = [
     href: '/services/commercial-drywall',
   },
   {
-    // <!-- REPLACE: Actual project photo -->
     title: 'Water Damage Repair',
     category: 'Residential',
     categoryId: 'residential',
@@ -62,7 +93,6 @@ const projects = [
     href: '/services/drywall-repair',
   },
   {
-    // <!-- REPLACE: Actual project photo -->
     title: 'Retail Space Renovation',
     category: 'Commercial',
     categoryId: 'commercial',
@@ -74,7 +104,6 @@ const projects = [
     href: '/services/commercial-drywall',
   },
   {
-    // <!-- REPLACE: Actual project photo -->
     title: 'Custom Texture Work',
     category: 'Residential',
     categoryId: 'residential',
@@ -87,13 +116,17 @@ const projects = [
   },
 ];
 
-const featuredTestimonial = {
-  // <!-- REPLACE: Actual customer testimonial -->
+// Static fallback testimonial
+const staticTestimonial = {
   quote: "Property Pros transformed our outdated basement into a beautiful finished space. Their attention to detail on the drywall finishing was exceptional—you can't even tell where the seams are. Highly recommend for any drywall project in the St. Cloud area!",
   author: 'Sarah M.',
   location: 'St. Cloud, MN',
   project: 'Basement Finishing',
 };
+
+// Use Sanity data if available
+const hasSanityProjects = sanityProjects.length > 0;
+const featuredTestimonial = sanityTestimonials.length > 0 ? sanityTestimonials[0] : null;
 ---
 
 <Layout
@@ -150,53 +183,97 @@ const featuredTestimonial = {
       <div class="container-large">
         <!-- SCHEMA: Portfolio/CreativeWork -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projects.map((project) => (
-            <a
-              href={project.href}
-              class="group relative block overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300"
-            >
-              <!-- Project Image -->
-              <div class="aspect-[4/3] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.alt}
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
+          {hasSanityProjects ? (
+            sanityProjects.map((project) => (
+              <a
+                href={project.slug?.current ? `/projects/${project.slug.current}` : '/projects'}
+                class="group relative block overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                <!-- Project Image -->
+                <div class="aspect-[4/3] overflow-hidden">
+                  {project.mainImage && (
+                    <img
+                      src={urlFor(project.mainImage).width(800).height(600).url()}
+                      alt={project.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  )}
+                </div>
 
-              <!-- Overlay on Hover -->
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <!-- Category Tag -->
-                <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full w-fit mb-3">
-                  {project.category}
-                </span>
-                <!-- Title -->
-                <h3 class="text-xl font-medium text-white mb-1">{project.title}</h3>
-                <!-- Location with geographic qualifier -->
-                <p class="text-white/70 text-sm mb-3">{project.location}</p>
-                <!-- View Link -->
-                <span class="inline-flex items-center gap-2 text-white text-sm font-medium">
-                  View Project
-                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </div>
-
-              <!-- Default Info (visible when not hovering) -->
-              <div class="p-5 group-hover:opacity-0 transition-opacity duration-300">
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="px-2.5 py-1 bg-bg-primary text-text-secondary text-xs font-medium rounded-full">
+                <!-- Overlay on Hover -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full w-fit mb-3">
                     {project.category}
                   </span>
-                  <span class="text-text-tertiary text-xs">{project.location}</span>
+                  <h3 class="text-xl font-medium text-white mb-1">{project.title}</h3>
+                  <p class="text-white/70 text-sm mb-3">{project.location}</p>
+                  <span class="inline-flex items-center gap-2 text-white text-sm font-medium">
+                    View Project
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
                 </div>
-                <h3 class="text-lg font-medium text-text-primary mb-1">{project.title}</h3>
-                <p class="text-sm text-text-secondary">{project.description}</p>
-              </div>
-            </a>
-          ))}
+
+                <!-- Default Info (visible when not hovering) -->
+                <div class="p-5 group-hover:opacity-0 transition-opacity duration-300">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2.5 py-1 bg-bg-primary text-text-secondary text-xs font-medium rounded-full">
+                      {project.category}
+                    </span>
+                    <span class="text-text-tertiary text-xs">{project.location}</span>
+                  </div>
+                  <h3 class="text-lg font-medium text-text-primary mb-1">{project.title}</h3>
+                  <p class="text-sm text-text-secondary">{project.excerpt}</p>
+                </div>
+              </a>
+            ))
+          ) : (
+            staticProjects.map((project) => (
+              <a
+                href={project.href}
+                class="group relative block overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                <!-- Project Image -->
+                <div class="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.alt}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+
+                <!-- Overlay on Hover -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full w-fit mb-3">
+                    {project.category}
+                  </span>
+                  <h3 class="text-xl font-medium text-white mb-1">{project.title}</h3>
+                  <p class="text-white/70 text-sm mb-3">{project.location}</p>
+                  <span class="inline-flex items-center gap-2 text-white text-sm font-medium">
+                    View Project
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+
+                <!-- Default Info (visible when not hovering) -->
+                <div class="p-5 group-hover:opacity-0 transition-opacity duration-300">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2.5 py-1 bg-bg-primary text-text-secondary text-xs font-medium rounded-full">
+                      {project.category}
+                    </span>
+                    <span class="text-text-tertiary text-xs">{project.location}</span>
+                  </div>
+                  <h3 class="text-lg font-medium text-text-primary mb-1">{project.title}</h3>
+                  <p class="text-sm text-text-secondary">{project.description}</p>
+                </div>
+              </a>
+            ))
+          )}
         </div>
 
         <!-- Load More Button (Static) -->
@@ -226,26 +303,44 @@ const featuredTestimonial = {
           </div>
 
           <!-- Quote Text -->
-          <!-- REPLACE: Actual customer testimonial -->
           <blockquote class="text-xl md:text-2xl lg:text-3xl font-light text-white leading-relaxed mb-8 max-w-4xl mx-auto">
-            "{featuredTestimonial.quote}"
+            "{featuredTestimonial?.quote || staticTestimonial.quote}"
           </blockquote>
 
           <!-- Author Info -->
           <div class="flex items-center justify-center gap-4">
-            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-              <span class="text-white font-medium">{featuredTestimonial.author.charAt(0)}</span>
-            </div>
+            {featuredTestimonial?.image ? (
+              <img
+                src={urlFor(featuredTestimonial.image).width(48).height(48).url()}
+                alt={featuredTestimonial.customerName}
+                class="w-12 h-12 rounded-full object-cover"
+              />
+            ) : (
+              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                <span class="text-white font-medium">
+                  {(featuredTestimonial?.customerName || staticTestimonial.author).charAt(0)}
+                </span>
+              </div>
+            )}
             <div class="text-left">
-              <div class="text-white font-medium">{featuredTestimonial.author}</div>
-              <div class="text-white/60 text-sm">{featuredTestimonial.location} · {featuredTestimonial.project}</div>
+              <div class="text-white font-medium">
+                {featuredTestimonial?.customerName || staticTestimonial.author}
+              </div>
+              <div class="text-white/60 text-sm">
+                {featuredTestimonial?.location || staticTestimonial.location}
+                {!featuredTestimonial && ` · ${staticTestimonial.project}`}
+              </div>
             </div>
           </div>
 
           <!-- Stars -->
           <div class="flex justify-center gap-1 mt-6">
-            {[1, 2, 3, 4, 5].map(() => (
-              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <svg
+                class={`w-5 h-5 ${star <= (featuredTestimonial?.rating || 5) ? 'text-yellow-400' : 'text-white/20'}`}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}

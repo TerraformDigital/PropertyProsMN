@@ -1,0 +1,353 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Contact from '../../components/home/Contact.astro';
+import { sanityFetch, urlFor } from '../../lib/sanity';
+import { allPostsQuery, singlePostQuery, relatedPostsQuery } from '../../lib/queries';
+import { renderPortableText } from '../../lib/portableText';
+
+// Type definitions
+interface SanityPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  body: any[];
+  publishedAt: string;
+  mainImage: any;
+  category: string;
+  author: {
+    name: string;
+    image: any;
+    bio: string;
+  };
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+  };
+}
+
+interface RelatedPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  mainImage: any;
+  category: string;
+}
+
+// Generate static paths from Sanity posts
+export async function getStaticPaths() {
+  let posts: { slug: { current: string } }[] = [];
+
+  try {
+    posts = await sanityFetch<{ slug: { current: string } }[]>(allPostsQuery) || [];
+  } catch (error) {
+    console.error('Error fetching posts for static paths:', error);
+  }
+
+  // Add static fallback slugs
+  const staticSlugs = [
+    'seasonal-home-maintenance-checklist',
+    'simple-drywall-fixes-you-can-do-yourself',
+    'budget-friendly-diy-home-improvements',
+    'preventing-water-damage-to-your-drywall',
+    'painting-tips-for-a-professional-finish',
+    'what-to-know-before-starting-a-drywall-project',
+    'choosing-the-right-drywall-texture',
+    'when-to-repair-vs-replace-drywall',
+  ];
+
+  const sanitySlugs = posts.map((post) => post.slug.current);
+  const allSlugs = [...new Set([...sanitySlugs, ...staticSlugs])];
+
+  return allSlugs.map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+// Try to fetch from Sanity
+let post: SanityPost | null = null;
+let relatedPosts: RelatedPost[] = [];
+
+try {
+  post = await sanityFetch<SanityPost>(singlePostQuery, { slug });
+  if (post) {
+    relatedPosts = await sanityFetch<RelatedPost[]>(relatedPostsQuery, { slug }) || [];
+  }
+} catch (error) {
+  console.error('Error fetching post:', error);
+}
+
+// Static fallback posts data
+const staticPosts: Record<string, any> = {
+  'seasonal-home-maintenance-checklist': {
+    title: 'Seasonal Home Maintenance Checklist for Central Minnesota',
+    excerpt: 'Keep your Central Minnesota home in top shape year-round with this comprehensive maintenance guide.',
+    category: 'Maintenance',
+    author: 'Property Pros Team',
+    date: 'December 1, 2024',
+    readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80',
+    alt: 'Home maintenance checklist for Central Minnesota homeowners',
+  },
+  'simple-drywall-fixes-you-can-do-yourself': {
+    title: 'Simple Drywall Fixes You Can Do Yourself',
+    excerpt: 'Small holes and minor drywall damage? Learn which repairs you can tackle yourself.',
+    category: 'DIY Tips',
+    author: 'Property Pros Team',
+    date: 'November 28, 2024',
+    readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80',
+    alt: 'DIY drywall repair tips',
+  },
+};
+
+// Use static data if no Sanity post found
+const staticPost = staticPosts[slug as string];
+const hasContent = post?.body && post.body.length > 0;
+
+// Helper to format date
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+// Calculate read time (rough estimate)
+function calculateReadTime(body: any[]): string {
+  if (!body) return '5 min read';
+  const text = JSON.stringify(body);
+  const wordCount = text.split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / 200);
+  return `${minutes} min read`;
+}
+
+// Page metadata
+const pageTitle = post?.seo?.metaTitle || post?.title || staticPost?.title || 'Blog Post';
+const pageDescription = post?.seo?.metaDescription || post?.excerpt || staticPost?.excerpt || '';
+---
+
+<Layout
+  title={`${pageTitle} | Property Pros Drywall Blog`}
+  description={pageDescription}
+>
+  <!-- ARTICLE HEADER -->
+  <section class="bg-white pt-16 pb-8 md:pt-24 md:pb-12">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Category Label -->
+          <span class="inline-block px-4 py-1.5 bg-bg-primary text-text-secondary text-sm font-medium rounded-full mb-6">
+            {post?.category || staticPost?.category || 'Blog'}
+          </span>
+
+          <!-- H1 Title -->
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary mb-6 leading-tight">
+            {post?.title || staticPost?.title || 'Blog Post'}
+          </h1>
+
+          <!-- Excerpt -->
+          <p class="text-lg text-text-secondary mb-8">
+            {post?.excerpt || staticPost?.excerpt}
+          </p>
+
+          <!-- Meta Info -->
+          <div class="flex items-center justify-center gap-4 text-sm text-text-tertiary">
+            <span>{post?.author?.name || staticPost?.author || 'Property Pros Team'}</span>
+            <span class="w-1 h-1 rounded-full bg-text-tertiary"></span>
+            <span>{post?.publishedAt ? formatDate(post.publishedAt) : staticPost?.date}</span>
+            <span class="w-1 h-1 rounded-full bg-text-tertiary"></span>
+            <span>{post?.body ? calculateReadTime(post.body) : staticPost?.readTime || '5 min read'}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED IMAGE -->
+  <section class="pb-12">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="aspect-[21/9] rounded-2xl overflow-hidden">
+          {post?.mainImage ? (
+            <img
+              src={urlFor(post.mainImage).width(1200).height(514).url()}
+              alt={post.title}
+              class="w-full h-full object-cover"
+            />
+          ) : (
+            <img
+              src={staticPost?.image || 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80'}
+              alt={staticPost?.alt || 'Blog post image'}
+              class="w-full h-full object-cover"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE CONTENT -->
+  <article class="pb-16">
+    <div class="padding-global">
+      <div class="max-w-3xl mx-auto">
+        <div class="prose">
+          {hasContent ? (
+            <Fragment set:html={renderPortableText(post!.body)} />
+          ) : (
+            <div class="text-center py-12">
+              <p class="text-text-secondary mb-6">
+                This article content is managed in our CMS. Visit our Sanity Studio to add content.
+              </p>
+              <a href="/contact" class="btn btn-primary">
+                Contact Us for More Info
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- RELATED ARTICLES SECTION -->
+  {relatedPosts.length > 0 && (
+    <section class="section section-light">
+      <div class="padding-global">
+        <div class="container-large">
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <span class="section-label">Related</span>
+            <h2 class="section-title mt-4">Similar articles for you</h2>
+          </div>
+
+          <!-- Related Posts Grid -->
+          <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {relatedPosts.slice(0, 3).map((relatedPost) => (
+              <a
+                href={`/blog/${relatedPost.slug.current}`}
+                class="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              >
+                <!-- Image -->
+                <div class="aspect-[16/10] overflow-hidden">
+                  {relatedPost.mainImage && (
+                    <img
+                      src={urlFor(relatedPost.mainImage).width(600).height(375).url()}
+                      alt={relatedPost.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+                <!-- Content -->
+                <div class="p-5">
+                  <span class="inline-block px-2.5 py-1 bg-bg-primary text-text-secondary text-xs font-medium rounded-full mb-3">
+                    {relatedPost.category || 'Blog'}
+                  </span>
+                  <h3 class="text-lg font-medium text-text-primary mb-2 group-hover:text-brand-blue transition-colors">
+                    {relatedPost.title}
+                  </h3>
+                  <p class="text-sm text-text-secondary line-clamp-2">
+                    {relatedPost.excerpt}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>
+
+<style>
+  /* Prose styling for article content */
+  .prose {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.75rem;
+  }
+
+  .prose :global(ol) {
+    list-style-type: decimal;
+  }
+
+  .prose :global(ul) {
+    list-style-type: disc;
+  }
+
+  .prose :global(strong) {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .prose :global(a) {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--brand-navy);
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid var(--brand-blue);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .prose :global(figure) {
+    margin: 2rem 0;
+  }
+
+  .prose :global(figcaption) {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin-top: 0.5rem;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
