@@ -857,10 +857,11 @@ a {
 /* ========================================
    RESPONSIVE
    ======================================== */
-@media screen and (max-width: 991px) {
-  .padding-global {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+
+/* Tablet landscape and below (1024px) - matches lg: breakpoint */
+@media screen and (max-width: 1023px) {
+  .navbar-list {
+    display: none;
   }
 
   .hero-wrap {
@@ -869,6 +870,23 @@ a {
 
   .hero-visual {
     min-height: 20rem;
+    position: relative;
+  }
+
+  .hero-content {
+    padding: 3rem 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet portrait (768px - 1023px) */
+@media screen and (max-width: 991px) {
+  .padding-global {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .hero-stats {
@@ -881,10 +899,6 @@ a {
     gap: 2rem;
   }
 
-  .navbar-list {
-    display: none;
-  }
-
   .padding-section-medium {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -894,24 +908,49 @@ a {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+
+  .section {
+    padding: 5rem 0;
+  }
 }
 
+/* Mobile landscape and below (767px) - matches md: breakpoint */
 @media screen and (max-width: 767px) {
   .padding-global {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
+  .text-7xl { font-size: 3rem; }
   .text-6xl { font-size: 2.5rem; }
   .text-5xl { font-size: 2rem; }
   .text-4xl { font-size: 1.75rem; }
+  .text-3xl { font-size: 1.5rem; }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
 
   .hero-stats {
     gap: 1.5rem;
   }
 
   .hero-stat-number {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.625rem;
+  }
+
+  .hero-content {
+    padding: 2.5rem 1rem;
+    gap: 1.25rem;
+  }
+
+  .hero-visual {
+    min-height: 16rem;
   }
 
   .footer-grid {
@@ -926,23 +965,88 @@ a {
 
   .team-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .section {
-    padding: 4rem 0;
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  /* Ensure grids stack on mobile */
+  .grid.md\:grid-cols-2,
+  .grid.md\:grid-cols-3,
+  .grid.lg\:grid-cols-3,
+  .grid.lg\:grid-cols-4 {
+    grid-template-columns: 1fr;
   }
 }
 
+/* Small mobile (479px and below) */
 @media screen and (max-width: 479px) {
   .hero-stat {
-    flex-basis: calc(50% - 1rem);
+    flex-basis: calc(50% - 0.75rem);
+  }
+
+  .hero-stats {
+    gap: 1rem;
   }
 
   .btn {
     width: 100%;
+    justify-content: center;
   }
 
   .form-input {
     font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .hero-badge {
+    font-size: 0.625rem;
+  }
+
+  .section-label {
+    font-size: 0.625rem;
+  }
+
+  .padding-global {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Extra small mobile (320px) */
+@media screen and (max-width: 320px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .text-7xl { font-size: 2.5rem; }
+  .text-6xl { font-size: 2rem; }
+  .text-5xl { font-size: 1.75rem; }
+  .text-4xl { font-size: 1.5rem; }
+
+  .hero-stat-number {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-badge,
+  .section-label {
+    font-size: 0.5625rem;
   }
 }
