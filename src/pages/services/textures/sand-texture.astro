@@ -1,0 +1,360 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Contact from '../../../components/home/Contact.astro';
+
+// <!-- SCHEMA: Service - Sand Texture -->
+
+const textureName = 'Sand Texture';
+const textureSlug = 'sand-texture';
+
+const characteristics = [
+  'Fine sand-like appearance',
+  'Subtle, understated texture',
+  'Easy to paint over',
+  'Simple to repair and touch up',
+  'Common in commercial spaces',
+  'Variations: sand swirl, sand spray',
+];
+
+const advantages = [
+  'Durable and long-lasting',
+  'Easy to maintain and clean',
+  'Simple texture matching for repairs',
+  'Cost-effective application',
+  'Works in any environment',
+  'Functional without being distracting',
+];
+
+const considerations = [
+  'Less visual interest than other textures',
+  'Can feel utilitarian',
+  'May look dated in some residential settings',
+  'Not ideal for formal living spaces',
+];
+
+const services = [
+  {
+    title: 'Sand Texture Application',
+    description: 'Professional sand texture for commercial, industrial, and utility spaces.',
+  },
+  {
+    title: 'Sand Swirl Finish',
+    description: 'Decorative variation with circular patterns created by hand in the sand texture.',
+  },
+  {
+    title: 'Sand Texture Repair',
+    description: 'Matching and repairing damaged sand-textured surfaces for seamless results.',
+  },
+  {
+    title: 'Commercial Applications',
+    description: 'Large-scale sand texture for office buildings, retail, and industrial spaces.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What\'s the difference between sand spray and sand swirl?',
+    answer: 'Sand spray is applied with spray equipment, creating a uniform fine-textured surface. Sand swirl adds a decorative element—after the sand texture is applied, it\'s hand-finished with circular motions creating distinctive patterns. Sand swirl adds more visual interest and is sometimes used in residential settings.',
+  },
+  {
+    question: 'Is sand texture good for garages and basements?',
+    answer: 'Yes! Sand texture is an excellent choice for garages, basements, utility rooms, and workshops. It\'s durable, easy to maintain, and provides a finished look without the cost of more decorative textures. Many homeowners choose sand texture for these functional spaces.',
+  },
+  {
+    question: 'Can sand texture be painted?',
+    answer: 'Absolutely. Sand texture accepts paint beautifully and is often finished with commercial-grade paints. The texture helps hide minor wall imperfections while providing good coverage. Any paint sheen works well over sand texture.',
+  },
+];
+---
+
+<Layout
+  title="Sand Texture Drywall Services | Commercial & Utility | Central MN"
+  description="Professional sand texture drywall services in Central Minnesota. Durable, easy-to-maintain texture for commercial spaces, garages, and utility areas."
+>
+  <!-- SCHEMA: Service -->
+
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Content -->
+          <div>
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm text-white/60 mb-6">
+              <a href="/services" class="hover:text-white transition-colors">Services</a>
+              <span>/</span>
+              <a href="/services/textures" class="hover:text-white transition-colors">Textures</a>
+              <span>/</span>
+              <span class="text-white">{textureName}</span>
+            </nav>
+
+            <!-- Label -->
+            <div class="hero-badge mb-6">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd" />
+              </svg>
+              Commercial Favorite
+            </div>
+
+            <!-- H1 Title -->
+            <h1 class="hero-title text-4xl md:text-5xl text-white mb-6">
+              Sand Texture Drywall Services in Central Minnesota
+            </h1>
+
+            <!-- Intro -->
+            <p class="text-muted text-lg mb-8">
+              Sand texture offers a subtle, durable finish that's perfect for commercial spaces and utility areas. Property Pros provides professional sand texture application for businesses, garages, and functional spaces throughout Central Minnesota.
+            </p>
+
+            <!-- CTA -->
+            <a href="/contact" class="btn btn-primary">
+              Get a Free Estimate
+            </a>
+          </div>
+
+          <!-- Image -->
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+              alt="Commercial space with sand texture walls"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Image -->
+          <div class="aspect-square rounded-2xl overflow-hidden bg-bg-primary">
+            <img
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80"
+              alt="Office with sand textured walls"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Content -->
+          <div>
+            <span class="section-label">About This Texture</span>
+            <h2 class="section-title mt-4 mb-6">What is Sand Texture?</h2>
+            <p class="text-secondary mb-6">
+              Sand texture is a fine, granular finish created by mixing silica sand into joint compound or paint, then spraying it onto the wall surface. The result is a subtle, uniform texture that feels slightly rough to the touch—similar to fine sandpaper.
+            </p>
+            <p class="text-secondary mb-8">
+              While not as decorative as orange peel or knockdown, sand texture serves an important purpose in commercial and utility applications. It's durable, easy to maintain, and provides a finished look without the cost of more elaborate textures.
+            </p>
+
+            <!-- Characteristics -->
+            <div class="grid sm:grid-cols-2 gap-3">
+              {characteristics.map((item) => (
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-brand-navy flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROS & CONS SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">Evaluation</span>
+          <h2 class="section-title mt-4">Advantages & Considerations</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Advantages -->
+          <div class="bg-white rounded-2xl p-8 border border-border-light">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-text-primary">Advantages</h3>
+            </div>
+            <ul class="space-y-3">
+              {advantages.map((item) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Considerations -->
+          <div class="bg-white rounded-2xl p-8 border border-border-light">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-text-primary">Considerations</h3>
+            </div>
+            <ul class="space-y-3">
+              {considerations.map((item) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE IT'S USED SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">Applications</span>
+          <h2 class="section-title mt-4">Where Sand Texture Works Best</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Commercial Spaces</h3>
+            <p class="text-text-secondary text-sm">Offices, retail backrooms, warehouses, and industrial buildings where durability matters.</p>
+          </div>
+
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Garages & Workshops</h3>
+            <p class="text-text-secondary text-sm">Functional spaces that need a finished look without decorative pretense.</p>
+          </div>
+
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Utility & Laundry Rooms</h3>
+            <p class="text-text-secondary text-sm">Practical texture for spaces that see regular use and cleaning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR SERVICES SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">What We Offer</span>
+          <h2 class="section-title mt-4">Our Sand Texture Services</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {services.map((service) => (
+            <div class="bg-white rounded-xl p-6 border border-border-light">
+              <h3 class="font-medium text-text-primary mb-2">{service.title}</h3>
+              <p class="text-text-secondary text-sm">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center mb-12">
+          <span class="section-label">Questions</span>
+          <h2 class="section-title mt-4">Sand Texture FAQs</h2>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="group bg-bg-primary rounded-xl border border-border-light">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="text-lg font-medium text-text-primary pr-4">{faq.question}</h3>
+                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-navy flex items-center justify-center group-open:rotate-45 transition-transform">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6">
+                <p class="text-text-secondary">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER TEXTURES -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <span class="section-label">Explore More</span>
+          <h2 class="section-title mt-4 mb-6">Other Texture Options</h2>
+
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="/services/textures/orange-peel" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Orange Peel
+            </a>
+            <a href="/services/textures/knockdown" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Knockdown
+            </a>
+            <a href="/services/textures/smooth-finish" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Smooth Finish
+            </a>
+            <a href="/services/textures/skip-trowel" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Skip Trowel
+            </a>
+            <a href="/services/textures/popcorn-ceiling" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Popcorn Removal
+            </a>
+          </div>
+
+          <a href="/services/textures" class="btn btn-outline">
+            View All Textures
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>
