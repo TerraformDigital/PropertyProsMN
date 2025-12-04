@@ -1,0 +1,67 @@
+---
+const stats = [
+  { value: '10y', label: 'of Excellence' },
+  { value: '100+', label: 'Projects Done' },
+  { value: '1k', label: 'Happy Clients' },
+];
+---
+
+<section class="section-hero">
+  <div class="hero-wrap">
+    <!-- Left spacer -->
+    <div></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+        Property Pros Drywall
+      </div>
+
+      <!-- Title -->
+      <h1 class="hero-title text-5xl md:text-6xl text-white">
+        Your trusted partner for home maintenance
+      </h1>
+
+      <!-- Description -->
+      <p class="text-muted text-base max-w-lg">
+        Serving Central Minnesota with professional drywall installation, repair, and finishing services for residential and commercial projects.
+      </p>
+
+      <!-- CTA Button -->
+      <div class="mt-4">
+        <a href="/contact" class="btn btn-outline-light">
+          Get Started
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero-stats">
+        {stats.map((stat) => (
+          <div class="hero-stat">
+            <div class="hero-stat-number">{stat.value}</div>
+            <div class="hero-stat-label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Hero Visual -->
+    <div class="hero-visual">
+      <img
+        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+        alt="Professional drywall contractor at work"
+        class="hero-image"
+      />
+    </div>
+
+    <!-- Right spacer -->
+    <div></div>
+  </div>
+</section>

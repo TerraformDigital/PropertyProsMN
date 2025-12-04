@@ -1,6 +1,6 @@
-# Property Pros MN - Documentation
+# Property Pros Drywall - Documentation
 
-This folder contains design assets and reference materials for the Property Pros MN website.
+This folder contains design assets and reference materials for the Property Pros Drywall website.
 
 ## Design Assets
 
@@ -15,7 +15,7 @@ Place the following files here:
 
 ## Project Overview
 
-Property Pros MN is a professional drywall contractor website serving Minnesota. The site showcases:
+Property Pros Drywall is a professional drywall contractor website serving Minnesota. The site showcases:
 
 - **Services**: Drywall installation, repair, finishing, and specialty work
 - **Projects**: Portfolio of completed residential and commercial work

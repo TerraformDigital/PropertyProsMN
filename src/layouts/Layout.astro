@@ -1,10 +1,14 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Property Pros MN - Professional Drywall Services in Minnesota' } = Astro.props;
+const { title, description = 'Property Pros Drywall - Professional Drywall Services in Central Minnesota' } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,13 +19,13 @@ const { title, description = 'Property Pros MN - Professional Drywall Services i
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Property Pros MN</title>
+    <title>{title} | Property Pros Drywall</title>
   </head>
-  <body class="min-h-screen flex flex-col">
-    <slot />
+  <body class="page-wrapper">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
-
-<style is:global>
-  @import '../styles/global.css';
-</style>
