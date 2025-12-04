@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import sanity from '@sanity/astro';
+import vercel from '@astrojs/vercel';
 import { loadEnv } from 'vite';
 
 const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
@@ -11,6 +12,8 @@ const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
 );
 
 export default defineConfig({
+  output: 'server',
+  adapter: vercel(),
   integrations: [
     tailwind(),
     react(),
