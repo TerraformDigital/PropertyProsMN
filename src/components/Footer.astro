@@ -1,5 +1,6 @@
 ---
 const currentYear = new Date().getFullYear();
+const gbpLink = 'https://maps.app.goo.gl/VKA3CwhTwx1r94eLA';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
@@ -90,10 +91,10 @@ const services = [
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span class="footer-link">
-                Central Minnesota<br />
-                St. Cloud & Surrounding Areas
-              </span>
+              <a href={gbpLink} target="_blank" rel="noopener noreferrer" class="footer-link hover:text-white">
+                10848 80th Ave SE<br />
+                Clear Lake, MN 55319
+              </a>
             </li>
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
