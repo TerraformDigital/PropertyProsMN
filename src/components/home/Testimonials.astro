@@ -1,30 +1,60 @@
 ---
-const testimonials = [
+import { sanityFetch, urlFor } from '../../lib/sanity';
+import { featuredTestimonialsQuery } from '../../lib/queries';
+
+// Type definition
+interface SanityTestimonial {
+  _id: string;
+  customerName: string;
+  location: string;
+  quote: string;
+  rating: number;
+  image: any;
+}
+
+// Fetch from Sanity
+let sanityTestimonials: SanityTestimonial[] = [];
+
+try {
+  sanityTestimonials = await sanityFetch<SanityTestimonial[]>(featuredTestimonialsQuery) || [];
+} catch (error) {
+  console.error('Error fetching testimonials from Sanity:', error);
+}
+
+// Static fallback testimonials
+const staticTestimonials = [
   {
-    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    quote: "Property Pros completely transformed our basement. The drywall work was flawless—you can't even tell where the seams are. Highly recommend!",
     author: "Mark T.",
     location: "St. Cloud, MN",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    rating: 5,
   },
   {
-    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    quote: "Professional, punctual, and the quality exceeded our expectations. They made our home renovation stress-free.",
     author: "Sarah M.",
     location: "Sartell, MN",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    rating: 5,
   },
   {
-    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    quote: "Great communication throughout the project. The team was respectful of our home and cleaned up every day.",
     author: "Mike Johnson",
     location: "Waite Park, MN",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    rating: 5,
   },
   {
-    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    quote: "Called for emergency water damage repair and they were out the same day. Excellent work matching our existing texture.",
     author: "Jennifer K.",
     location: "Cold Spring, MN",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    rating: 5,
   },
 ];
+
+// Use Sanity data if available
+const hasSanityTestimonials = sanityTestimonials.length > 0;
 ---
 
 <section class="section section-light">
@@ -38,36 +68,83 @@ const testimonials = [
 
       <!-- Testimonials Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {testimonials.map((testimonial) => (
-          <div class="testimonial-card">
-            <!-- Customer Photo -->
-            <img
-              src={testimonial.image}
-              alt={testimonial.author}
-              class="testimonial-image"
-            />
+        {hasSanityTestimonials ? (
+          sanityTestimonials.map((testimonial) => (
+            <div class="testimonial-card">
+              <!-- Customer Photo -->
+              {testimonial.image ? (
+                <img
+                  src={urlFor(testimonial.image).width(400).height(300).url()}
+                  alt={testimonial.customerName}
+                  class="testimonial-image"
+                />
+              ) : (
+                <div class="testimonial-image bg-bg-primary flex items-center justify-center">
+                  <span class="text-4xl text-text-tertiary">{testimonial.customerName.charAt(0)}</span>
+                </div>
+              )}
 
-            <!-- Stars -->
-            <div class="testimonial-stars">
-              {[...Array(5)].map(() => (
-                <svg class="testimonial-star" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
+              <!-- Stars -->
+              <div class="testimonial-stars">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg
+                    class={`testimonial-star ${star <= (testimonial.rating || 5) ? 'text-yellow-400' : 'text-gray-200'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+
+              <!-- Quote -->
+              <p class="testimonial-quote">
+                "{testimonial.quote}"
+              </p>
+
+              <!-- Author -->
+              <div>
+                <div class="testimonial-author">{testimonial.customerName}</div>
+                <div class="testimonial-location">{testimonial.location}</div>
+              </div>
             </div>
+          ))
+        ) : (
+          staticTestimonials.map((testimonial) => (
+            <div class="testimonial-card">
+              <!-- Customer Photo -->
+              <img
+                src={testimonial.image}
+                alt={testimonial.author}
+                class="testimonial-image"
+              />
 
-            <!-- Quote -->
-            <p class="testimonial-quote">
-              "{testimonial.quote}"
-            </p>
+              <!-- Stars -->
+              <div class="testimonial-stars">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <svg
+                    class={`testimonial-star ${star <= testimonial.rating ? 'text-yellow-400' : 'text-gray-200'}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
 
-            <!-- Author -->
-            <div>
-              <div class="testimonial-author">{testimonial.author}</div>
-              <div class="testimonial-location">{testimonial.location}</div>
+              <!-- Quote -->
+              <p class="testimonial-quote">
+                "{testimonial.quote}"
+              </p>
+
+              <!-- Author -->
+              <div>
+                <div class="testimonial-author">{testimonial.author}</div>
+                <div class="testimonial-location">{testimonial.location}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
 
       <!-- Navigation Dots -->

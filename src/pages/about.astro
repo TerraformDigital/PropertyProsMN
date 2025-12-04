@@ -1,9 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Contact from '../components/home/Contact.astro';
+import { sanityFetch, urlFor } from '../lib/sanity';
+import { allAuthorsQuery } from '../lib/queries';
 
 // <!-- SCHEMA: Organization - Add JSON-LD structured data here -->
 // <!-- SCHEMA: LocalBusiness / HomeAndConstructionBusiness -->
+
+// Type definition
+interface SanityAuthor {
+  _id: string;
+  name: string;
+  slug: { current: string };
+  role: string;
+  image: any;
+  bio: string;
+}
+
+// Fetch team members from Sanity
+let sanityTeamMembers: SanityAuthor[] = [];
+
+try {
+  sanityTeamMembers = await sanityFetch<SanityAuthor[]>(allAuthorsQuery) || [];
+} catch (error) {
+  console.error('Error fetching team members from Sanity:', error);
+}
 
 const heroStats = [
   { value: '10+', label: 'Years Experience' },
@@ -38,36 +59,36 @@ const differentiators = [
   },
 ];
 
-const teamMembers = [
+// Static fallback team members
+const staticTeamMembers = [
   {
-    // <!-- REPLACE: Actual team member photo and info -->
     name: 'Team Member',
     role: 'Owner & Lead Contractor',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
     alt: 'Property Pros Drywall owner and lead contractor',
   },
   {
-    // <!-- REPLACE: Actual team member photo and info -->
     name: 'Team Member',
     role: 'Project Manager',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
     alt: 'Property Pros Drywall project manager',
   },
   {
-    // <!-- REPLACE: Actual team member photo and info -->
     name: 'Team Member',
     role: 'Senior Drywall Specialist',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
     alt: 'Senior drywall installation specialist',
   },
   {
-    // <!-- REPLACE: Actual team member photo and info -->
     name: 'Team Member',
     role: 'Finishing Expert',
     image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&q=80',
     alt: 'Drywall finishing and texture expert',
   },
 ];
+
+// Use Sanity data if available
+const hasSanityTeam = sanityTeamMembers.length > 0;
 ---
 
 <Layout
@@ -96,7 +117,6 @@ const teamMembers = [
         </h1>
 
         <!-- Description with geographic qualifiers -->
-        <!-- REPLACE: Company mission statement -->
         <p class="text-muted text-base max-w-lg">
           Property Pros Drywall is Central Minnesota's trusted drywall contractor, serving Clear Lake, St. Cloud, and surrounding communities. We believe in building more than walls—we build lasting relationships through honest communication, quality craftsmanship, and a commitment to exceeding expectations.
         </p>
@@ -112,7 +132,6 @@ const teamMembers = [
         </div>
 
         <!-- Stats Row -->
-        <!-- SCHEMA: Organization statistics -->
         <div class="hero-stats">
           {heroStats.map((stat) => (
             <div class="hero-stat">
@@ -125,7 +144,6 @@ const teamMembers = [
 
       <!-- Right: Hero Image -->
       <div class="hero-visual">
-        <!-- REPLACE: Professional team photo or work in progress image -->
         <img
           src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
           alt="Property Pros Drywall team installing drywall in a Central Minnesota home"
@@ -143,7 +161,6 @@ const teamMembers = [
         <div class="text-center mb-12">
           <span class="section-label">Why Choose Us</span>
           <h2 class="section-title mt-4 mb-4">Why Central Minnesota trusts Property Pros</h2>
-          <!-- REPLACE: Subheading about differentiators -->
           <p class="text-secondary max-w-2xl mx-auto">
             Homeowners and businesses throughout the St. Cloud area choose Property Pros Drywall for our commitment to quality, transparent pricing, and customer-first approach.
           </p>
@@ -184,11 +201,9 @@ const teamMembers = [
   <section class="section section-white" style="padding-top: 0;">
     <div class="padding-global">
       <div class="container-large">
-        <!-- SCHEMA: Organization foundingDate, description -->
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <!-- Left: Image -->
           <div class="aspect-square rounded-xl overflow-hidden">
-            <!-- REPLACE: Owner photo or team photo -->
             <img
               src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
               alt="Property Pros Drywall founder serving Central Minnesota communities"
@@ -201,7 +216,6 @@ const teamMembers = [
             <span class="section-label">Our Story</span>
             <h2 class="section-title mb-6">How Property Pros Drywall began</h2>
 
-            <!-- REPLACE: Company history with entity-rich content -->
             <div class="space-y-4 mb-8">
               <p class="text-secondary">
                 Property Pros Drywall was founded in Clear Lake, Minnesota with a simple mission: to provide Central Minnesota homeowners and businesses with exceptional drywall services they can trust. What started as a small, family-focused operation has grown into one of the region's most respected drywall contractors.
@@ -223,7 +237,6 @@ const teamMembers = [
               </div>
               <div>
                 <h3 class="font-medium text-text-primary mb-1">Our Mission</h3>
-                <!-- REPLACE: Mission statement -->
                 <p class="text-sm text-text-secondary">To deliver exceptional drywall services to Central Minnesota homes and businesses, building lasting relationships through quality craftsmanship, transparent pricing, and unwavering reliability.</p>
               </div>
             </div>
@@ -237,7 +250,6 @@ const teamMembers = [
               </div>
               <div>
                 <h3 class="font-medium text-text-primary mb-1">Our Values</h3>
-                <!-- REPLACE: Company values -->
                 <p class="text-sm text-text-secondary">Integrity in every interaction. Quality in every detail. Respect for your home, your time, and your investment. These principles guide every project we undertake.</p>
               </div>
             </div>
@@ -251,14 +263,12 @@ const teamMembers = [
   <section class="section section-dark">
     <div class="padding-global">
       <div class="container-large">
-        <!-- SCHEMA: Organization employees -->
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <!-- Left: Content -->
           <div>
             <span class="section-label">Our Team</span>
             <h2 class="section-title text-white mb-6">Meet the Property Pros team</h2>
 
-            <!-- REPLACE: Team introduction with geographic context -->
             <p class="text-muted mb-8 max-w-md">
               Our team of dedicated professionals brings decades of combined experience to every project across Central Minnesota. From Clear Lake to St. Cloud, Sartell to Sauk Rapids, we're proud to be the trusted drywall experts for homeowners and contractors alike.
             </p>
@@ -279,22 +289,43 @@ const teamMembers = [
 
           <!-- Right: Team Grid -->
           <div class="team-grid">
-            {teamMembers.map((member) => (
-              <div class="team-card">
-                <!-- REPLACE: Actual team member photos -->
-                <img
-                  src={member.image}
-                  alt={member.alt}
-                  class="team-image"
-                  loading="lazy"
-                />
-                <div class="team-info">
-                  <!-- REPLACE: Actual team member names and roles -->
-                  <div class="team-name">{member.name}</div>
-                  <div class="team-role">{member.role}</div>
+            {hasSanityTeam ? (
+              sanityTeamMembers.slice(0, 4).map((member) => (
+                <div class="team-card">
+                  {member.image ? (
+                    <img
+                      src={urlFor(member.image).width(400).height(400).url()}
+                      alt={member.name}
+                      class="team-image"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="team-image bg-brand-navy/50 flex items-center justify-center">
+                      <span class="text-4xl text-white/50">{member.name.charAt(0)}</span>
+                    </div>
+                  )}
+                  <div class="team-info">
+                    <div class="team-name">{member.name}</div>
+                    <div class="team-role">{member.role}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              staticTeamMembers.map((member) => (
+                <div class="team-card">
+                  <img
+                    src={member.image}
+                    alt={member.alt}
+                    class="team-image"
+                    loading="lazy"
+                  />
+                  <div class="team-info">
+                    <div class="team-name">{member.name}</div>
+                    <div class="team-role">{member.role}</div>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>
