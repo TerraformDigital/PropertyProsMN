@@ -9,7 +9,7 @@ const dataset = import.meta.env.PUBLIC_SANITY_DATASET || 'production';
 
 export default defineConfig({
   name: 'property-pros-mn',
-  title: 'Property Pros MN',
+  title: 'Property Pros Drywall',
   projectId,
   dataset,
   plugins: [

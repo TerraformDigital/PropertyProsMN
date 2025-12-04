@@ -2,7 +2,7 @@
   "name": "propertyprosmn",
   "version": "1.0.0",
   "type": "module",
-  "description": "Property Pros MN - Professional Drywall Contractor Website",
+  "description": "Property Pros Drywall - Professional Drywall Contractor Website",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -20,7 +20,7 @@
     "astro",
     "sanity"
   ],
-  "author": "Property Pros MN",
+  "author": "Property Pros Drywall",
   "license": "ISC",
   "dependencies": {
     "@astrojs/react": "^4.4.2",
