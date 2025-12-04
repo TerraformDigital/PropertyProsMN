@@ -2,30 +2,171 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { sanityFetch, urlFor } from '../lib/sanity';
+import { siteSettingsQuery } from '../lib/queries';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+  schema?: object;
 }
 
-const { title, description = 'Property Pros Drywall - Professional Drywall Services in Central Minnesota' } = Astro.props;
+// Fetch site settings from Sanity
+let settings: any = {};
+try {
+  settings = await sanityFetch(siteSettingsQuery) || {};
+} catch (error) {
+  console.error('Error fetching site settings:', error);
+}
+
+const {
+  title = settings.seoTitle || 'Property Pros Drywall',
+  description = settings.seoDescription || 'Professional Drywall Services in Central Minnesota',
+  ogImage,
+  noIndex = false,
+  schema
+} = Astro.props;
+
+// Build the full title
+const fullTitle = title.includes('Property Pros') ? title : `${title} | Property Pros Drywall`;
+
+// Get OG image URL
+const ogImageUrl = ogImage || (settings.ogImage ? urlFor(settings.ogImage) : '');
+
+// Build LocalBusiness schema
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": settings.schemaType || "HomeAndConstructionBusiness",
+  "name": settings.businessName || "Property Pros Drywall",
+  "description": settings.seoDescription,
+  "url": "https://propertyprosmn.com",
+  "telephone": settings.phone,
+  "email": settings.email,
+  ...(settings.address && {
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": settings.address.street,
+      "addressLocality": settings.address.city,
+      "addressRegion": settings.address.state,
+      "postalCode": settings.address.zip,
+      "addressCountry": "US"
+    }
+  }),
+  ...(settings.geoCoordinates && {
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": settings.geoCoordinates.latitude,
+      "longitude": settings.geoCoordinates.longitude
+    }
+  }),
+  ...(settings.priceRange && { "priceRange": settings.priceRange }),
+  ...(settings.foundingDate && { "foundingDate": settings.foundingDate }),
+  ...(settings.serviceAreaGeo && { "areaServed": settings.serviceAreaGeo }),
+  "sameAs": [
+    settings.facebookUrl,
+    settings.instagramUrl,
+    settings.linkedinUrl,
+    settings.youtubeUrl
+  ].filter(Boolean)
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex,nofollow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+    {settings.twitterHandle && <meta name="twitter:site" content={`@${settings.twitterHandle}`} />}
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Property Pros Drywall</title>
+
+    <!-- Google Analytics -->
+    {settings.googleAnalyticsId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${settings.googleAnalyticsId}`}></script>
+        <script define:vars={{ gaId: settings.googleAnalyticsId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        </script>
+      </>
+    )}
+
+    <!-- Google Tag Manager -->
+    {settings.googleTagManagerId && (
+      <script define:vars={{ gtmId: settings.googleTagManagerId }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',gtmId);
+      </script>
+    )}
+
+    <!-- Custom Head Scripts -->
+    {settings.headScripts && <Fragment set:html={settings.headScripts} />}
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+
+    <!-- Custom Schema JSON-LD -->
+    {settings.customSchemaJson && (
+      <script type="application/ld+json" set:html={settings.customSchemaJson} />
+    )}
+
+    <!-- Page-specific Schema -->
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
   </head>
   <body class="page-wrapper">
+    <!-- GTM noscript -->
+    {settings.googleTagManagerId && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${settings.googleTagManagerId}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden">
+        </iframe>
+      </noscript>
+    )}
+
+    <!-- Body Start Scripts -->
+    {settings.bodyStartScripts && <Fragment set:html={settings.bodyStartScripts} />}
+
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+
+    <!-- Body End Scripts -->
+    {settings.bodyEndScripts && <Fragment set:html={settings.bodyEndScripts} />}
   </body>
 </html>

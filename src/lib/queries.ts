@@ -178,12 +178,33 @@ export const primaryServiceAreasQuery = `*[_type == "serviceArea" && isPrimary =
 export const siteSettingsQuery = `*[_type == "siteSettings"][0] {
   businessName,
   tagline,
+  logo,
+  favicon,
   phone,
   email,
   address,
   googleBusinessProfile,
-  socialLinks,
-  businessHours
+  businessHours,
+  seoTitle,
+  seoDescription,
+  seoKeywords,
+  ogImage,
+  twitterHandle,
+  facebookUrl,
+  instagramUrl,
+  linkedinUrl,
+  youtubeUrl,
+  googleAnalyticsId,
+  googleTagManagerId,
+  headScripts,
+  bodyStartScripts,
+  bodyEndScripts,
+  schemaType,
+  foundingDate,
+  priceRange,
+  geoCoordinates,
+  serviceAreaGeo,
+  customSchemaJson
 }`;
 
 // ========================================

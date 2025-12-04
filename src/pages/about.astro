@@ -59,31 +59,23 @@ const differentiators = [
   },
 ];
 
-// Static fallback team members
+// Static fallback team members - The Spencer Brothers
 const staticTeamMembers = [
   {
-    name: 'Team Member',
-    role: 'Owner & Lead Contractor',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
-    alt: 'Property Pros Drywall owner and lead contractor',
+    name: 'Steve Spencer',
+    role: 'Co-Owner & Project Manager',
+    email: 'Steve@propertyprosmn.com',
+    image: '/Steve-Spencer.jpeg', // Upload owner photo to /public/Steve-Spencer.jpeg
+    alt: 'Steve Spencer - Co-Owner and Project Manager of Property Pros Drywall',
+    bio: '',
   },
   {
-    name: 'Team Member',
-    role: 'Project Manager',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-    alt: 'Property Pros Drywall project manager',
-  },
-  {
-    name: 'Team Member',
-    role: 'Senior Drywall Specialist',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
-    alt: 'Senior drywall installation specialist',
-  },
-  {
-    name: 'Team Member',
-    role: 'Finishing Expert',
-    image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&q=80',
-    alt: 'Drywall finishing and texture expert',
+    name: 'Kevin Spencer',
+    role: 'Co-Owner & Operator',
+    email: 'Kevin@propertyprosmn.com',
+    image: '/Kevin-Spencer.jpeg', // Upload owner photo to /public/Kevin-Spencer.jpeg
+    alt: 'Kevin Spencer - Co-Owner and Operator of Property Pros Drywall',
+    bio: '',
   },
 ];
 
@@ -145,7 +137,7 @@ const hasSanityTeam = sanityTeamMembers.length > 0;
       <!-- Right: Hero Image -->
       <div class="hero-visual">
         <img
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+          src="/Completed-Drywall-Job-2.jpeg"
           alt="Property Pros Drywall team installing drywall in a Central Minnesota home"
           class="hero-image"
         />
@@ -205,8 +197,8 @@ const hasSanityTeam = sanityTeamMembers.length > 0;
           <!-- Left: Image -->
           <div class="aspect-square rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
-              alt="Property Pros Drywall founder serving Central Minnesota communities"
+              src="/Drywall-Job-Progress-2.jpeg"
+              alt="Property Pros Drywall work in progress on a Central Minnesota project"
               class="w-full h-full object-cover"
             />
           </div>
@@ -259,7 +251,7 @@ const hasSanityTeam = sanityTeamMembers.length > 0;
     </div>
   </section>
 
-  <!-- MEET THE TEAM SECTION -->
+  <!-- MEET THE OWNERS SECTION -->
   <section class="section section-dark">
     <div class="padding-global">
       <div class="container-large">
@@ -267,31 +259,52 @@ const hasSanityTeam = sanityTeamMembers.length > 0;
           <!-- Left: Content -->
           <div>
             <span class="section-label">Our Team</span>
-            <h2 class="section-title text-white mb-6">Meet the Property Pros team</h2>
+            <h2 class="section-title text-white mb-4">The Spencer Brothers</h2>
 
-            <p class="text-muted mb-8 max-w-md">
-              Our team of dedicated professionals brings decades of combined experience to every project across Central Minnesota. From Clear Lake to St. Cloud, Sartell to Sauk Rapids, we're proud to be the trusted drywall experts for homeowners and contractors alike.
+            <!-- Lead Paragraph -->
+            <p class="text-lg text-white/90 mb-4 max-w-md leading-relaxed">
+              Brothers Steve and Kevin Spencer founded Property Pros with a simple mission: deliver quality drywall work and treat every customer like a neighbor.
             </p>
 
-            <!-- Big Stat -->
-            <div class="mb-8">
-              <div class="text-7xl font-light text-white mb-2">100+</div>
-              <div class="text-muted uppercase tracking-widest text-sm">Years of Combined Experience</div>
+            <!-- Supporting Paragraph -->
+            <p class="text-muted mb-8 max-w-md">
+              As a family-owned business based in Clear Lake, we take personal pride in every project. When you work with Property Pros, you work directly with the owners.
+            </p>
+
+            <!-- Stats Row -->
+            <div class="team-stats-row">
+              <div class="team-stat-item">
+                <div class="team-stat-value">15+</div>
+                <div class="team-stat-label">Years Experience</div>
+              </div>
+              <div class="team-stat-divider"></div>
+              <div class="team-stat-item">
+                <div class="team-stat-value">500+</div>
+                <div class="team-stat-label">Projects</div>
+              </div>
+              <div class="team-stat-divider"></div>
+              <div class="team-stat-item">
+                <div class="team-stat-value">Family</div>
+                <div class="team-stat-label">Owned & Operated</div>
+              </div>
             </div>
 
-            <a href="/contact" class="btn btn-outline-light">
-              Work With Us
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            <!-- CTA Button -->
+            <div class="mt-8">
+              <a href="/contact" class="btn btn-outline-light">
+                Work With Us
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <!-- Right: Team Grid -->
-          <div class="team-grid">
+          <!-- Right: Team Grid (2-person layout) -->
+          <div class="team-grid-duo">
             {hasSanityTeam ? (
-              sanityTeamMembers.slice(0, 4).map((member) => (
-                <div class="team-card">
+              sanityTeamMembers.slice(0, 2).map((member) => (
+                <div class="team-card-large">
                   {member.image ? (
                     <img
                       src={`${urlFor(member.image)}?w=400&h=400&fit=crop&auto=format`}
@@ -312,7 +325,7 @@ const hasSanityTeam = sanityTeamMembers.length > 0;
               ))
             ) : (
               staticTeamMembers.map((member) => (
-                <div class="team-card">
+                <div class="team-card-large">
                   <img
                     src={member.image}
                     alt={member.alt}
@@ -322,6 +335,7 @@ const hasSanityTeam = sanityTeamMembers.length > 0;
                   <div class="team-info">
                     <div class="team-name">{member.name}</div>
                     <div class="team-role">{member.role}</div>
+                    <a href={`mailto:${member.email}`} class="team-email">{member.email}</a>
                   </div>
                 </div>
               ))

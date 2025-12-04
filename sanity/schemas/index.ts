@@ -7,7 +7,13 @@ import serviceArea from './serviceArea';
 import siteSettings from './siteSettings';
 import testimonial from './testimonial';
 
+// Object types
+import seo from './objects/seo';
+
 export const schemaTypes = [
+  // Object types (must come first)
+  seo,
+
   // Documents
   author,
   blogPost,

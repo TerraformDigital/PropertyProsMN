@@ -715,6 +715,93 @@ a {
   color: var(--text-muted);
 }
 
+/* Team Grid - 2 person layout (Spencer Brothers) */
+.team-grid-duo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.team-card-large {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.team-card-large .team-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.team-card-large .team-info {
+  padding: 1.25rem 0;
+  text-align: center;
+}
+
+.team-card-large .team-name {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--brand-white);
+  margin-bottom: 0.25rem;
+}
+
+.team-card-large .team-role {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.team-email {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--brand-gold);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.team-email:hover {
+  color: var(--brand-white);
+  text-decoration: underline;
+}
+
+/* Team Stats Row - Horizontal layout with dividers */
+.team-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.team-stat-item {
+  text-align: left;
+}
+
+.team-stat-value {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--brand-white);
+  line-height: 1.2;
+}
+
+.team-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.125rem;
+}
+
+.team-stat-divider {
+  width: 1px;
+  height: 2.5rem;
+  background-color: var(--brand-white);
+  opacity: 0.2;
+}
+
 /* ========================================
    FOOTER
    ======================================== */
@@ -966,6 +1053,25 @@ a {
   .team-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .team-grid-duo {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 300px;
+  }
+
+  .team-stats-row {
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+
+  .team-stat-value {
+    font-size: 1.25rem;
+  }
+
+  .team-stat-divider {
+    height: 2rem;
   }
 
   .section {

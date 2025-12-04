@@ -4,17 +4,24 @@ export default defineType({
   name: 'blogPost',
   title: 'Blog Post',
   type: 'document',
+  groups: [
+    { name: 'content', title: 'Content', default: true },
+    { name: 'media', title: 'Media' },
+    { name: 'seo', title: 'SEO' },
+  ],
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      group: 'content',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      group: 'content',
       options: {
         source: 'title',
         maxLength: 96,
@@ -26,11 +33,13 @@ export default defineType({
       title: 'Author',
       type: 'reference',
       to: [{ type: 'author' }],
+      group: 'content',
     }),
     defineField({
       name: 'mainImage',
       title: 'Main Image',
       type: 'image',
+      group: 'media',
       options: {
         hotspot: true,
       },
@@ -40,23 +49,27 @@ export default defineType({
       title: 'Categories',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }],
+      group: 'content',
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      group: 'content',
     }),
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
       rows: 3,
+      group: 'content',
       description: 'Brief summary for listings and SEO',
     }),
     defineField({
       name: 'body',
       title: 'Body',
       type: 'array',
+      group: 'content',
       of: [
         {
           type: 'block',
@@ -96,17 +109,10 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'seoTitle',
-      title: 'SEO Title',
-      type: 'string',
-      description: 'Override the default title for SEO purposes',
-    }),
-    defineField({
-      name: 'seoDescription',
-      title: 'SEO Description',
-      type: 'text',
-      rows: 2,
-      description: 'Override the excerpt for meta description',
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+      group: 'seo',
     }),
   ],
   preview: {
