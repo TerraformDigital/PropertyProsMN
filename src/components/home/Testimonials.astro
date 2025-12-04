@@ -74,7 +74,7 @@ const hasSanityTestimonials = sanityTestimonials.length > 0;
               <!-- Customer Photo -->
               {testimonial.image ? (
                 <img
-                  src={urlFor(testimonial.image).width(400).height(300).url()}
+                  src={`${urlFor(testimonial.image)}?w=400&h=300&fit=crop&auto=format`}
                   alt={testimonial.customerName}
                   class="testimonial-image"
                 />

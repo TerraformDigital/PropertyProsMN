@@ -1,0 +1,227 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Contact from '../components/home/Contact.astro';
+
+// <!-- SCHEMA: FAQPage - Add JSON-LD structured data here -->
+
+// FAQ Categories
+const generalFaqs = [
+  {
+    question: 'How long does a typical drywall project take?',
+    answer: 'Project timelines vary based on scope. A single room repair might take 1-2 days, while a full basement finish typically takes 1-2 weeks. We provide detailed timelines during your free estimate.',
+  },
+  {
+    question: 'Do you offer free estimates?',
+    answer: "Yes, we provide free, no-obligation estimates for all projects. We'll assess your space, discuss your needs, and provide transparent pricing before any work begins.",
+  },
+  {
+    question: 'What areas do you serve?',
+    answer: 'We serve Central Minnesota including Clear Lake, St. Cloud, Sartell, Sauk Rapids, Waite Park, and surrounding communities within about 30 miles of our Clear Lake headquarters.',
+  },
+  {
+    question: 'Are you licensed and insured?',
+    answer: "Yes, Property Pros is fully licensed and insured for residential and commercial drywall work in Minnesota. We're happy to provide documentation upon request.",
+  },
+];
+
+const installationFaqs = [
+  {
+    question: "What's the difference between drywall and sheetrock?",
+    answer: "Sheetrock is actually a brand name (owned by USG Corporation) for drywall. They're the same product - gypsum panels used to create interior walls and ceilings.",
+  },
+  {
+    question: 'How thick should drywall be for interior walls?',
+    answer: 'Standard interior walls use 1/2" drywall. Ceilings often use 5/8" for added rigidity and fire resistance. We\'ll recommend the right thickness for your specific application.',
+  },
+  {
+    question: 'Can drywall be installed over existing walls?',
+    answer: "In some cases, yes. We can install new drywall over old if the existing surface is sound. However, removing old material often provides better results and allows us to inspect for hidden issues.",
+  },
+  {
+    question: 'How long before I can paint new drywall?',
+    answer: "After finishing, drywall needs 24-48 hours to fully dry before painting. We'll let you know exactly when your walls are ready for primer and paint.",
+  },
+];
+
+const repairFaqs = [
+  {
+    question: 'Can you match my existing wall texture?',
+    answer: "Yes, texture matching is one of our specialties. We're experienced with all common textures including orange peel, knockdown, smooth, and popcorn. Most repairs are virtually undetectable once painted.",
+  },
+  {
+    question: 'How do you repair water-damaged drywall?',
+    answer: "First, the water source must be fixed. Then we remove damaged sections, check for mold, replace insulation if needed, install new drywall, and finish to match. We don't just cover up problems.",
+  },
+  {
+    question: 'Is it worth repairing small holes or should I wait?',
+    answer: "Small holes are quick and inexpensive to fix. Waiting often leads to larger damage from moisture or impacts. We're happy to handle repairs of any size.",
+  },
+  {
+    question: 'Do you repair plaster walls?',
+    answer: 'Yes, we work with both drywall and plaster. For older homes, we can repair existing plaster or convert to drywall depending on your preference and budget.',
+  },
+];
+
+const textureFaqs = [
+  {
+    question: 'Can you remove popcorn ceilings?',
+    answer: 'Absolutely. Popcorn ceiling removal is one of our most popular services. We test for asbestos (common in pre-1980 homes), safely remove the texture, and refinish with a smooth or modern texture.',
+  },
+  {
+    question: 'What texture is best for hiding imperfections?',
+    answer: 'Orange peel and knockdown textures are excellent at hiding minor imperfections. Smooth finishes require more preparation but offer a modern, clean look.',
+  },
+  {
+    question: 'Can you change my wall texture?',
+    answer: 'Yes, we can skim coat over existing texture to create a smooth surface, or apply a new texture over properly prepared walls.',
+  },
+];
+
+const commercialFaqs = [
+  {
+    question: 'Do you work with general contractors?',
+    answer: 'Yes, contractor partnerships are a key part of our business. We offer reliable scheduling, competitive subcontractor pricing, and the quality that reflects well on your projects.',
+  },
+  {
+    question: 'Can you handle large commercial projects?',
+    answer: "Yes, we're equipped for commercial projects including office buildouts, retail spaces, and multi-unit residential. We can scale our crew to meet your timeline.",
+  },
+  {
+    question: "What's your typical lead time for commercial work?",
+    answer: 'Lead times vary by season and project size. For accurate scheduling, contact us with your project details and timeline needs.',
+  },
+];
+
+const allCategories = [
+  { id: 'general', title: 'General Questions', faqs: generalFaqs },
+  { id: 'installation', title: 'Installation Questions', faqs: installationFaqs },
+  { id: 'repair', title: 'Repair Questions', faqs: repairFaqs },
+  { id: 'texture', title: 'Texture Questions', faqs: textureFaqs },
+  { id: 'commercial', title: 'Commercial & Contractor Questions', faqs: commercialFaqs },
+];
+---
+
+<Layout
+  title="Drywall FAQ | Common Questions Answered | Property Pros MN"
+  description="Get answers to frequently asked questions about drywall installation, repair, texture, and finishing services in Central Minnesota."
+>
+  <!-- SCHEMA: FAQPage -->
+
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-12 md:pt-20 md:pb-14">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Label -->
+          <div class="hero-badge mx-auto mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+            </svg>
+            FAQ
+          </div>
+
+          <!-- H1 Title -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+            Frequently Asked Questions
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-muted text-lg max-w-2xl mx-auto">
+            Answers to common questions about drywall installation, repair, and finishing in Central Minnesota.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK NAV -->
+  <section class="section-light py-6 border-b border-border-light sticky top-0 z-40 bg-bg-primary/95 backdrop-blur-sm">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+          {allCategories.map((category) => (
+            <a
+              href={`#${category.id}`}
+              class="px-4 py-2 text-sm font-medium text-text-secondary hover:text-brand-navy hover:bg-white rounded-full transition-colors"
+            >
+              {category.title}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTIONS -->
+  <section class="section section-white" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="padding-global">
+      <div class="container-medium">
+        {allCategories.map((category) => (
+          <div id={category.id} class="mb-16 last:mb-0 scroll-mt-24">
+            <!-- Category Header -->
+            <div class="mb-8">
+              <span class="section-label">{category.id === 'general' ? 'Getting Started' : category.id === 'installation' ? 'New Projects' : category.id === 'repair' ? 'Repairs' : category.id === 'texture' ? 'Textures' : 'Business'}</span>
+              <h2 class="section-title mt-4">{category.title}</h2>
+            </div>
+
+            <!-- FAQ List -->
+            <div class="space-y-4">
+              {category.faqs.map((faq) => (
+                <details
+                  class="group bg-bg-primary rounded-xl border border-border-light"
+                  itemscope
+                  itemprop="mainEntity"
+                  itemtype="https://schema.org/Question"
+                >
+                  <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                    <h3 class="text-lg font-medium text-text-primary pr-4" itemprop="name">
+                      {faq.question}
+                    </h3>
+                    <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-navy flex items-center justify-center group-open:rotate-45 transition-transform">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="px-6 pb-6" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p class="text-text-secondary" itemprop="text">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section section-dark">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <h2 class="section-title text-white mb-4">Still Have Questions?</h2>
+          <p class="text-muted text-lg max-w-xl mx-auto mb-8">
+            We're happy to answer any questions about your specific project. Reach out for a free consultation.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="tel:320-743-8388" class="btn btn-primary">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              Call 320-743-8388
+            </a>
+            <a href="/contact" class="btn btn-outline-light">
+              Get a Free Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>

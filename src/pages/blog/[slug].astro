@@ -172,7 +172,7 @@ const pageDescription = post?.seo?.metaDescription || post?.excerpt || staticPos
         <div class="aspect-[21/9] rounded-2xl overflow-hidden">
           {post?.mainImage ? (
             <img
-              src={urlFor(post.mainImage).width(1200).height(514).url()}
+              src={`${urlFor(post.mainImage)}?w=1200&h=514&fit=crop&auto=format`}
               alt={post.title}
               class="w-full h-full object-cover"
             />
@@ -232,7 +232,7 @@ const pageDescription = post?.seo?.metaDescription || post?.excerpt || staticPos
                 <div class="aspect-[16/10] overflow-hidden">
                   {relatedPost.mainImage && (
                     <img
-                      src={urlFor(relatedPost.mainImage).width(600).height(375).url()}
+                      src={`${urlFor(relatedPost.mainImage)}?w=600&h=375&fit=crop&auto=format`}
                       alt={relatedPost.title}
                       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"

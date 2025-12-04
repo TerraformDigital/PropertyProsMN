@@ -1,0 +1,360 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Contact from '../../../components/home/Contact.astro';
+
+// <!-- SCHEMA: Service - Skip Trowel Texture -->
+
+const textureName = 'Skip Trowel';
+const textureSlug = 'skip-trowel';
+
+const characteristics = [
+  'Hand-applied Mediterranean style',
+  'Each application is unique',
+  'Elegant old-world appearance',
+  'Creates depth and shadow',
+  'Artisan craftsmanship required',
+  'Dramatic visual statement',
+];
+
+const advantages = [
+  'Unique, one-of-a-kind finish',
+  'Elegant European aesthetic',
+  'Adds significant character',
+  'Excellent for accent walls',
+  'Timeless, upscale appearance',
+];
+
+const considerations = [
+  'Most difficult texture to match',
+  'Higher cost due to labor intensity',
+  'Requires skilled craftsman',
+  'Not ideal for entire homes',
+  'Can feel too dramatic in small spaces',
+];
+
+const services = [
+  {
+    title: 'New Skip Trowel Application',
+    description: 'Hand-applied skip trowel texture by skilled craftsmen for authentic Mediterranean character.',
+  },
+  {
+    title: 'Accent Wall Installation',
+    description: 'Create stunning focal points with skip trowel texture on feature walls.',
+  },
+  {
+    title: 'Skip Trowel Repair',
+    description: 'Careful repair work to match existing hand-troweled patterns as closely as possible.',
+  },
+  {
+    title: 'Custom Patterns',
+    description: 'Varied skip trowel styles from subtle to dramatic based on your preferences.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What makes skip trowel different from knockdown?',
+    answer: 'While both have Mediterranean roots, skip trowel is entirely hand-applied with a curved trowel in sweeping, overlapping strokes. Knockdown starts as a spray texture that\'s then flattened. Skip trowel has a more organic, artistic quality with visible trowel marks creating unique patterns.',
+  },
+  {
+    question: 'Can skip trowel be matched for repairs?',
+    answer: 'Skip trowel is the most challenging texture to match because each application is inherently unique. Our experienced craftsmen can come close, but perfect matching is difficult. For this reason, we often recommend skip trowel for accent walls where minor variations add character.',
+  },
+  {
+    question: 'Is skip trowel appropriate for ceilings?',
+    answer: 'Skip trowel can be applied to ceilings, but it\'s typically reserved for special areas like dining rooms or entryways. The heavy texture can feel overwhelming overhead in large spaces. We can advise on the best application for your specific project.',
+  },
+];
+---
+
+<Layout
+  title="Skip Trowel Texture Services | Hand-Troweled Drywall | Central MN"
+  description="Professional skip trowel texture services in Central Minnesota. Hand-applied Mediterranean-style drywall texture for elegant, upscale homes and accent walls."
+>
+  <!-- SCHEMA: Service -->
+
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Content -->
+          <div>
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm text-white/60 mb-6">
+              <a href="/services" class="hover:text-white transition-colors">Services</a>
+              <span>/</span>
+              <a href="/services/textures" class="hover:text-white transition-colors">Textures</a>
+              <span>/</span>
+              <span class="text-white">{textureName}</span>
+            </nav>
+
+            <!-- Label -->
+            <div class="hero-badge mb-6">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd" />
+              </svg>
+              Artisan Crafted
+            </div>
+
+            <!-- H1 Title -->
+            <h1 class="hero-title text-4xl md:text-5xl text-white mb-6">
+              Skip Trowel Texture Services in Central Minnesota
+            </h1>
+
+            <!-- Intro -->
+            <p class="text-muted text-lg mb-8">
+              Skip trowel is the choice for homeowners who want something truly special. This hand-applied texture creates elegant, old-world character that transforms ordinary walls into works of art. Property Pros brings skilled craftsmanship to every skip trowel project.
+            </p>
+
+            <!-- CTA -->
+            <a href="/contact" class="btn btn-primary">
+              Get a Free Estimate
+            </a>
+          </div>
+
+          <!-- Image -->
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=800&q=80"
+              alt="Skip trowel hand-applied texture"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Image -->
+          <div class="aspect-square rounded-2xl overflow-hidden bg-bg-primary">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+              alt="Elegant room with skip trowel textured walls"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Content -->
+          <div>
+            <span class="section-label">About This Texture</span>
+            <h2 class="section-title mt-4 mb-6">What is Skip Trowel Texture?</h2>
+            <p class="text-secondary mb-6">
+              Skip trowel is a hand-applied texture created by skilled craftsmen using a curved drywall knife or trowel. Joint compound is applied in sweeping, overlapping strokes that "skip" across the surface, leaving behind organic, flowing patterns with visible trowel marks.
+            </p>
+            <p class="text-secondary mb-8">
+              The result is an elegant, European-inspired finish with depth and shadow that changes throughout the day as light moves across the surface. Each skip trowel application is unique—no two walls will ever look exactly the same.
+            </p>
+
+            <!-- Characteristics -->
+            <div class="grid sm:grid-cols-2 gap-3">
+              {characteristics.map((item) => (
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-brand-navy flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROS & CONS SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">Evaluation</span>
+          <h2 class="section-title mt-4">Advantages & Considerations</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Advantages -->
+          <div class="bg-white rounded-2xl p-8 border border-border-light">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-text-primary">Advantages</h3>
+            </div>
+            <ul class="space-y-3">
+              {advantages.map((item) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Considerations -->
+          <div class="bg-white rounded-2xl p-8 border border-border-light">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-text-primary">Considerations</h3>
+            </div>
+            <ul class="space-y-3">
+              {considerations.map((item) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE IT'S USED SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">Applications</span>
+          <h2 class="section-title mt-4">Where Skip Trowel Shines</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Entryways & Foyers</h3>
+            <p class="text-text-secondary text-sm">Make a stunning first impression with elegant skip trowel in your home's entry.</p>
+          </div>
+
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Dining Rooms</h3>
+            <p class="text-text-secondary text-sm">Create an intimate, European-style dining atmosphere with textured walls.</p>
+          </div>
+
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-12 h-12 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Accent Walls</h3>
+            <p class="text-text-secondary text-sm">Use skip trowel strategically on feature walls for maximum impact without overwhelming spaces.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR SERVICES SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">What We Offer</span>
+          <h2 class="section-title mt-4">Our Skip Trowel Services</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {services.map((service) => (
+            <div class="bg-white rounded-xl p-6 border border-border-light">
+              <h3 class="font-medium text-text-primary mb-2">{service.title}</h3>
+              <p class="text-text-secondary text-sm">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center mb-12">
+          <span class="section-label">Questions</span>
+          <h2 class="section-title mt-4">Skip Trowel FAQs</h2>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="group bg-bg-primary rounded-xl border border-border-light">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="text-lg font-medium text-text-primary pr-4">{faq.question}</h3>
+                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-navy flex items-center justify-center group-open:rotate-45 transition-transform">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6">
+                <p class="text-text-secondary">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER TEXTURES -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <span class="section-label">Explore More</span>
+          <h2 class="section-title mt-4 mb-6">Other Texture Options</h2>
+
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="/services/textures/orange-peel" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Orange Peel
+            </a>
+            <a href="/services/textures/knockdown" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Knockdown
+            </a>
+            <a href="/services/textures/smooth-finish" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Smooth Finish
+            </a>
+            <a href="/services/textures/popcorn-ceiling" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Popcorn Removal
+            </a>
+            <a href="/services/textures/sand-texture" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Sand Texture
+            </a>
+          </div>
+
+          <a href="/services/textures" class="btn btn-outline">
+            View All Textures
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>

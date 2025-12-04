@@ -1,0 +1,299 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Contact from '../../components/home/Contact.astro';
+
+// <!-- SCHEMA: LocalBusiness, Service, AreaServed -->
+
+// Service area cities with unique content
+const cities = [
+  {
+    name: 'Clear Lake',
+    slug: 'clear-lake',
+    tagline: 'Our Home Base',
+    description: 'Where Property Pros began. As Clear Lake residents ourselves, we bring hometown pride to every local project.',
+    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80',
+  },
+  {
+    name: 'St. Cloud',
+    slug: 'st-cloud',
+    tagline: 'Commercial & Residential',
+    description: 'Serving the heart of Central Minnesota with professional drywall services for businesses and homeowners alike.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
+  },
+  {
+    name: 'Sartell',
+    slug: 'sartell',
+    tagline: 'Growing With You',
+    description: 'Supporting Sartell\'s rapid growth with quality drywall work for new construction and renovation projects.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+  },
+  {
+    name: 'Sauk Rapids',
+    slug: 'sauk-rapids',
+    tagline: 'Trusted Neighbor',
+    description: 'Helping Sauk Rapids families maintain and improve their homes with reliable drywall expertise.',
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80',
+  },
+  {
+    name: 'Waite Park',
+    slug: 'waite-park',
+    tagline: 'Business District Expert',
+    description: 'Specialists in commercial drywall for Waite Park\'s thriving retail and business corridor.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80',
+  },
+];
+
+// Additional communities we serve
+const additionalAreas = [
+  'Cold Spring', 'Richmond', 'Rockville', 'St. Joseph', 'Foley',
+  'Rice', 'Royalton', 'Little Falls', 'Melrose', 'Albany'
+];
+---
+
+<Layout
+  title="Service Areas | Drywall Contractors in Central Minnesota | Property Pros"
+  description="Property Pros provides professional drywall services throughout Central Minnesota including St. Cloud, Sartell, Clear Lake, Sauk Rapids, and Waite Park. Local expertise, quality results."
+>
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Label -->
+          <div class="hero-badge mx-auto mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            Service Areas
+          </div>
+
+          <!-- H1 Title -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+            Drywall Services Throughout Central Minnesota
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-muted text-lg max-w-2xl mx-auto mb-10">
+            From our home base in Clear Lake, Property Pros serves communities across Central Minnesota. Local knowledge, professional results, and a commitment to quality in every project.
+          </p>
+
+          <!-- CTA Button -->
+          <a href="/contact" class="btn btn-primary">
+            Get a Free Estimate
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Map Image -->
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-bg-primary">
+            <img
+              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80"
+              alt="Central Minnesota service area map"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Content -->
+          <div>
+            <span class="section-label">Our Coverage</span>
+            <h2 class="section-title mt-4 mb-6">Proudly Serving Central Minnesota</h2>
+            <p class="text-secondary mb-6">
+              Based in Clear Lake, Property Pros has built a reputation for quality drywall work across the greater St. Cloud metro area. Whether you're in a bustling commercial district or a quiet residential neighborhood, we bring the same professional standards to every job.
+            </p>
+            <p class="text-secondary mb-8">
+              Our service radius covers approximately 30 miles from Clear Lake, ensuring we can respond quickly to your project needs while maintaining the personalized service that sets us apart.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="text-3xl font-medium text-brand-navy mb-1">5+</div>
+                <div class="text-sm text-text-tertiary">Core Cities</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-medium text-brand-navy mb-1">30</div>
+                <div class="text-sm text-text-tertiary">Mile Radius</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-medium text-brand-navy mb-1">15+</div>
+                <div class="text-sm text-text-tertiary">Years Local</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITIES GRID SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="section-label">Where We Work</span>
+          <h2 class="section-title mt-4 mb-4">Communities We Serve</h2>
+          <p class="text-secondary max-w-2xl mx-auto">
+            Click on a city to learn more about our drywall services in your area, including local projects and testimonials from your neighbors.
+          </p>
+        </div>
+
+        <!-- Cities Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {cities.map((city) => (
+            <a
+              href={`/service-areas/${city.slug}`}
+              class="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              <!-- Image -->
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={city.image}
+                  alt={`Drywall services in ${city.name}, Minnesota`}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <!-- Content -->
+              <div class="p-6">
+                <span class="inline-block px-3 py-1 bg-bg-primary text-text-secondary text-xs font-medium rounded-full mb-3">
+                  {city.tagline}
+                </span>
+                <h3 class="text-xl font-medium text-text-primary mb-2 group-hover:text-brand-blue transition-colors">
+                  {city.name}, MN
+                </h3>
+                <p class="text-text-secondary text-sm mb-4">
+                  {city.description}
+                </p>
+                <span class="inline-flex items-center gap-2 text-brand-navy text-sm font-medium">
+                  Learn More
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDITIONAL AREAS SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <span class="section-label">Also Serving</span>
+          <h2 class="section-title mt-4 mb-6">Additional Communities</h2>
+          <p class="text-secondary mb-8">
+            Beyond our core service cities, we regularly complete projects in these surrounding Central Minnesota communities. Contact us to confirm availability in your area.
+          </p>
+
+          <!-- Community Tags -->
+          <div class="flex flex-wrap justify-center gap-3">
+            {additionalAreas.map((area) => (
+              <span class="px-4 py-2 bg-bg-primary text-text-secondary text-sm font-medium rounded-full">
+                {area}
+              </span>
+            ))}
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10">
+            <p class="text-text-tertiary mb-4">Don't see your city listed?</p>
+            <a href="/contact" class="btn btn-outline">
+              Contact Us to Check Availability
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY LOCAL MATTERS SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Content -->
+          <div>
+            <span class="section-label">Local Advantage</span>
+            <h2 class="section-title mt-4 mb-6">Why Choose a Local Contractor</h2>
+            <div class="space-y-4">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-navy/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-text-primary mb-1">Faster Response Times</h3>
+                  <p class="text-text-secondary text-sm">Being based in Central Minnesota means we can often provide same-day estimates and quick project starts.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-navy/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-text-primary mb-1">Community Reputation</h3>
+                  <p class="text-text-secondary text-sm">Our reputation is built on word-of-mouth from satisfied neighbors. We live here too—quality matters to us.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-navy/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-text-primary mb-1">Accountability</h3>
+                  <p class="text-text-secondary text-sm">We're not a faceless company from the Cities. You know where to find us, and we stand behind every project.</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-navy/10 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-lg font-medium text-text-primary mb-1">Climate Knowledge</h3>
+                  <p class="text-text-secondary text-sm">We understand Minnesota's extreme temperatures and humidity swings—and how they affect drywall.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+              alt="Property Pros team serving Central Minnesota"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>

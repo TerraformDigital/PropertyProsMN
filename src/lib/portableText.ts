@@ -21,7 +21,7 @@ export function renderPortableText(content: any): string {
     components: {
       types: {
         image: ({ value }: { value: PortableTextImage }) => {
-          const imageUrl = urlFor(value).width(800).url();
+          const imageUrl = `${urlFor(value)}?w=800&fit=max&auto=format`;
           const alt = value.alt || '';
           return `<figure class="my-8">
             <img src="${imageUrl}" alt="${alt}" class="w-full rounded-lg" loading="lazy" />

@@ -1,0 +1,398 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Contact from '../../../components/home/Contact.astro';
+
+// <!-- SCHEMA: Service - Popcorn Ceiling Removal -->
+
+const textureName = 'Popcorn Ceiling Removal';
+const textureSlug = 'popcorn-ceiling';
+
+const characteristics = [
+  'Also called acoustic or cottage cheese',
+  'Popular from 1960s through 1980s',
+  'May contain asbestos in pre-1980 homes',
+  'Dated appearance by today\'s standards',
+  'Difficult to clean and maintain',
+  'Traps dust and cobwebs',
+];
+
+const removalBenefits = [
+  'Instant home value improvement',
+  'Modernizes any space',
+  'Easier cleaning and maintenance',
+  'Better light reflection',
+  'Eliminates dust and allergen traps',
+  'Opens up room visually',
+];
+
+const afterOptions = [
+  {
+    title: 'Smooth Finish',
+    description: 'The most popular choice after removal. Clean, modern, and contemporary.',
+  },
+  {
+    title: 'Orange Peel',
+    description: 'Subtle texture that hides minor imperfections while looking fresh and updated.',
+  },
+  {
+    title: 'Knockdown',
+    description: 'Add Mediterranean character with a modern knockdown texture.',
+  },
+  {
+    title: 'Light Sand',
+    description: 'Subtle texture option that provides some visual interest.',
+  },
+];
+
+const services = [
+  {
+    title: 'Popcorn Ceiling Removal',
+    description: 'Complete removal of outdated popcorn/acoustic texture from your ceilings.',
+  },
+  {
+    title: 'Asbestos Testing',
+    description: 'We coordinate testing for pre-1980 homes to ensure safe removal procedures.',
+  },
+  {
+    title: 'Surface Preparation',
+    description: 'After removal, we repair and prepare the surface for your chosen finish.',
+  },
+  {
+    title: 'New Texture Application',
+    description: 'Apply your choice of modern texture or smooth finish after removal.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How do I know if my popcorn ceiling contains asbestos?',
+    answer: 'If your home was built before 1980, there\'s a chance the popcorn texture contains asbestos. We strongly recommend professional testing before any removal work. We can coordinate asbestos testing as part of our service. Never attempt to remove untested popcorn ceilings yourself.',
+  },
+  {
+    question: 'How long does popcorn ceiling removal take?',
+    answer: 'For a typical room, removal takes 1-2 days. This includes protection of floors and furniture, removal of the texture, repairs to the underlying surface, and application of the new finish. Larger homes or multiple rooms will take proportionally longer.',
+  },
+  {
+    question: 'How much does popcorn ceiling removal cost?',
+    answer: 'Costs vary based on ceiling size, condition, whether asbestos is present (which requires special handling), and your choice of replacement finish. Contact us for a free, no-obligation estimate specific to your project.',
+  },
+  {
+    question: 'Can painted popcorn ceilings be removed?',
+    answer: 'Yes, but painted popcorn is more challenging than unpainted. The paint seals the texture, making it harder to soften and scrape. It may require additional time and technique, which we\'ll factor into your estimate.',
+  },
+];
+
+const processSteps = [
+  {
+    step: '1',
+    title: 'Testing',
+    description: 'For pre-1980 homes, we arrange asbestos testing to ensure safe procedures.',
+  },
+  {
+    step: '2',
+    title: 'Preparation',
+    description: 'We protect your floors, furniture, and fixtures with plastic sheeting.',
+  },
+  {
+    step: '3',
+    title: 'Removal',
+    description: 'The popcorn texture is carefully removed using professional techniques.',
+  },
+  {
+    step: '4',
+    title: 'Repair',
+    description: 'We repair any underlying damage and prepare the surface.',
+  },
+  {
+    step: '5',
+    title: 'New Finish',
+    description: 'Your chosen texture or smooth finish is expertly applied.',
+  },
+  {
+    step: '6',
+    title: 'Cleanup',
+    description: 'Complete cleanup and removal of all debris and protective materials.',
+  },
+];
+---
+
+<Layout
+  title="Popcorn Ceiling Removal | Acoustic Ceiling Removal | Central MN"
+  description="Professional popcorn ceiling removal in Central Minnesota. Safely remove dated acoustic texture and upgrade to modern smooth or textured ceilings. Free estimates."
+>
+  <!-- SCHEMA: Service -->
+
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Content -->
+          <div>
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm text-white/60 mb-6">
+              <a href="/services" class="hover:text-white transition-colors">Services</a>
+              <span>/</span>
+              <a href="/services/textures" class="hover:text-white transition-colors">Textures</a>
+              <span>/</span>
+              <span class="text-white">Popcorn Removal</span>
+            </nav>
+
+            <!-- Label -->
+            <div class="hero-badge mb-6">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Most Requested
+            </div>
+
+            <!-- H1 Title -->
+            <h1 class="hero-title text-4xl md:text-5xl text-white mb-6">
+              Popcorn Ceiling Removal in Central Minnesota
+            </h1>
+
+            <!-- Intro -->
+            <p class="text-muted text-lg mb-8">
+              Ready to say goodbye to your dated popcorn ceilings? Property Pros specializes in safe, thorough popcorn ceiling removal, transforming your spaces with modern smooth or textured finishes. It's our most requested ceiling service for good reason.
+            </p>
+
+            <!-- CTA -->
+            <a href="/contact" class="btn btn-primary">
+              Get a Free Estimate
+            </a>
+          </div>
+
+          <!-- Image -->
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80"
+              alt="Ceiling being professionally finished"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY REMOVE SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Image -->
+          <div class="aspect-square rounded-2xl overflow-hidden bg-bg-primary">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+              alt="Modern room with smooth ceiling"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Content -->
+          <div>
+            <span class="section-label">Why Remove</span>
+            <h2 class="section-title mt-4 mb-6">Benefits of Popcorn Ceiling Removal</h2>
+            <p class="text-secondary mb-6">
+              Popcorn ceilings (also called acoustic or cottage cheese ceilings) were popular from the 1960s through the 1980s. While they once served a purpose for sound absorption, today they're considered dated and bring several downsides.
+            </p>
+            <p class="text-secondary mb-8">
+              Removing popcorn ceilings is one of the most impactful home improvements you can make. It instantly modernizes spaces and can significantly increase your home's appeal and value.
+            </p>
+
+            <!-- Benefits -->
+            <div class="grid sm:grid-cols-2 gap-3">
+              {removalBenefits.map((item) => (
+                <div class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-text-secondary text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASBESTOS WARNING -->
+  <section class="bg-amber-50 py-8">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
+            <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-medium text-amber-800 mb-2">Important: Asbestos Testing for Pre-1980 Homes</h3>
+            <p class="text-amber-700">
+              Popcorn ceilings installed before 1980 may contain asbestos. <strong>Never attempt DIY removal without testing.</strong> Property Pros coordinates professional asbestos testing and follows all safety protocols for homes built in this era. Your family's health is our priority.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">Our Process</span>
+          <h2 class="section-title mt-4">How We Remove Popcorn Ceilings</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {processSteps.map((item) => (
+            <div class="bg-white rounded-xl p-6 border border-border-light">
+              <div class="w-10 h-10 rounded-full bg-brand-navy text-white flex items-center justify-center font-medium mb-4">
+                {item.step}
+              </div>
+              <h3 class="font-medium text-text-primary mb-2">{item.title}</h3>
+              <p class="text-text-secondary text-sm">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFTER OPTIONS SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">Your Options</span>
+          <h2 class="section-title mt-4">What Comes After Removal?</h2>
+          <p class="text-secondary max-w-2xl mx-auto">
+            Once the popcorn is gone, you have options. Most homeowners choose smooth for a modern look, but we can apply any texture you prefer.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {afterOptions.map((option) => (
+            <div class="bg-bg-primary rounded-xl p-6 text-center">
+              <h3 class="font-medium text-text-primary mb-2">{option.title}</h3>
+              <p class="text-text-secondary text-sm">{option.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR SERVICES SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">What We Offer</span>
+          <h2 class="section-title mt-4">Our Popcorn Removal Services</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {services.map((service) => (
+            <div class="bg-white rounded-xl p-6 border border-border-light">
+              <h3 class="font-medium text-text-primary mb-2">{service.title}</h3>
+              <p class="text-text-secondary text-sm">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center mb-12">
+          <span class="section-label">Questions</span>
+          <h2 class="section-title mt-4">Popcorn Ceiling Removal FAQs</h2>
+        </div>
+
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="group bg-bg-primary rounded-xl border border-border-light">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="text-lg font-medium text-text-primary pr-4">{faq.question}</h3>
+                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-navy flex items-center justify-center group-open:rotate-45 transition-transform">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6">
+                <p class="text-text-secondary">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section section-dark">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <h2 class="section-title text-white mb-4">Ready to Remove Your Popcorn Ceilings?</h2>
+          <p class="text-muted text-lg max-w-xl mx-auto mb-8">
+            Transform your home with modern, clean ceilings. Contact us for a free estimate and see how affordable this upgrade can be.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/contact" class="btn btn-primary">
+              Get a Free Estimate
+            </a>
+            <a href="tel:320-743-8388" class="btn btn-outline-light">
+              Call 320-743-8388
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER TEXTURES -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <span class="section-label">Explore More</span>
+          <h2 class="section-title mt-4 mb-6">Other Texture Options</h2>
+
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="/services/textures/orange-peel" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Orange Peel
+            </a>
+            <a href="/services/textures/knockdown" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Knockdown
+            </a>
+            <a href="/services/textures/smooth-finish" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Smooth Finish
+            </a>
+            <a href="/services/textures/skip-trowel" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Skip Trowel
+            </a>
+            <a href="/services/textures/sand-texture" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Sand Texture
+            </a>
+          </div>
+
+          <a href="/services/textures" class="btn btn-outline">
+            View All Textures
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>

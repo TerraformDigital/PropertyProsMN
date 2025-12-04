@@ -1,0 +1,301 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Contact from '../../../components/home/Contact.astro';
+
+// <!-- SCHEMA: Service - Texture Services -->
+
+const textures = [
+  {
+    name: 'Orange Peel',
+    slug: 'orange-peel',
+    description: 'The most popular texture in modern homes. Named for its citrus-like dimpled appearance, great for hiding imperfections.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+    popular: true,
+  },
+  {
+    name: 'Knockdown',
+    slug: 'knockdown',
+    description: 'Mediterranean-style texture with a dramatic, flattened appearance. Perfect for living rooms and dining areas.',
+    image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80',
+    popular: true,
+  },
+  {
+    name: 'Smooth Finish',
+    slug: 'smooth-finish',
+    description: 'Modern, clean look with no texture. Requires expert application for a flawless Level 5 finish.',
+    image: 'https://images.unsplash.com/photo-1598928506311-c55ez633a2ab?w=600&q=80',
+    popular: true,
+  },
+  {
+    name: 'Skip Trowel',
+    slug: 'skip-trowel',
+    description: 'Hand-applied Mediterranean style with unique, elegant patterns. Perfect for upscale homes and accent walls.',
+    image: 'https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=600&q=80',
+    popular: false,
+  },
+  {
+    name: 'Popcorn Ceiling',
+    slug: 'popcorn-ceiling',
+    description: 'Specializing in popcorn ceiling REMOVAL. Upgrade your dated ceilings to smooth or modern textures.',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80',
+    popular: true,
+  },
+  {
+    name: 'Sand Texture',
+    slug: 'sand-texture',
+    description: 'Subtle sand-like finish that\'s easy to paint and maintain. Common in commercial and utility spaces.',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80',
+    popular: false,
+  },
+];
+
+const comparisonPoints = [
+  {
+    title: 'Hiding Imperfections',
+    best: 'Orange Peel, Knockdown',
+    description: 'Textured finishes are excellent at concealing minor wall imperfections, nail pops, and seam lines.',
+  },
+  {
+    title: 'Modern Aesthetic',
+    best: 'Smooth Finish',
+    description: 'Smooth finishes offer the cleanest, most contemporary look but require more preparation and skill.',
+  },
+  {
+    title: 'Easy Maintenance',
+    best: 'Orange Peel, Sand',
+    description: 'Lighter textures are easier to clean and touch up over time.',
+  },
+  {
+    title: 'Character & Style',
+    best: 'Skip Trowel, Knockdown',
+    description: 'For a distinctive Mediterranean or old-world feel, hand-applied textures add unique character.',
+  },
+];
+---
+
+<Layout
+  title="Drywall Texture Services | All Texture Types | Property Pros Central MN"
+  description="Professional drywall texture services in Central Minnesota. Orange peel, knockdown, smooth finish, skip trowel, popcorn removal, and sand texture. Expert matching and repair."
+>
+  <!-- SCHEMA: Service -->
+
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Breadcrumb -->
+          <nav class="flex items-center justify-center gap-2 text-sm text-white/60 mb-6">
+            <a href="/services" class="hover:text-white transition-colors">Services</a>
+            <span>/</span>
+            <span class="text-white">Texture Services</span>
+          </nav>
+
+          <!-- Label -->
+          <div class="hero-badge mx-auto mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z" clip-rule="evenodd" />
+            </svg>
+            Texture Services
+          </div>
+
+          <!-- H1 Title -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+            Drywall Texture Options
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-muted text-lg max-w-2xl mx-auto mb-10">
+            From classic textures to modern smooth finishes, we match, repair, and apply every texture style. Find the perfect finish for your Central Minnesota home.
+          </p>
+
+          <!-- CTA -->
+          <a href="/contact" class="btn btn-primary">
+            Get a Free Estimate
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEXTURE GRID SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="section-label">Our Options</span>
+          <h2 class="section-title mt-4 mb-4">Texture Styles We Offer</h2>
+          <p class="text-secondary max-w-2xl mx-auto">
+            Every texture has its own character and purpose. Click on any texture to learn more about its applications, advantages, and our services.
+          </p>
+        </div>
+
+        <!-- Texture Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {textures.map((texture) => (
+            <a
+              href={`/services/textures/${texture.slug}`}
+              class="group block bg-bg-primary rounded-2xl overflow-hidden border border-border-light hover:shadow-xl hover:border-brand-navy/20 transition-all duration-300"
+            >
+              <!-- Image -->
+              <div class="aspect-[16/10] overflow-hidden relative">
+                <img
+                  src={texture.image}
+                  alt={`${texture.name} drywall texture`}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                {texture.popular && (
+                  <span class="absolute top-4 right-4 px-2 py-1 bg-brand-navy text-white text-xs font-medium rounded">
+                    Popular
+                  </span>
+                )}
+              </div>
+              <!-- Content -->
+              <div class="p-6">
+                <h3 class="text-xl font-medium text-text-primary mb-2 group-hover:text-brand-navy transition-colors">
+                  {texture.name}
+                </h3>
+                <p class="text-text-secondary text-sm mb-4">
+                  {texture.description}
+                </p>
+                <span class="inline-flex items-center gap-2 text-brand-navy text-sm font-medium">
+                  Learn More
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEXTURE COMPARISON SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Content -->
+          <div>
+            <span class="section-label">Comparison</span>
+            <h2 class="section-title mt-4 mb-6">Choosing the Right Texture</h2>
+            <p class="text-secondary mb-8">
+              Not sure which texture is right for your project? Here's a quick guide to help you understand the benefits of each option. Our team can also provide personalized recommendations during your free estimate.
+            </p>
+
+            <div class="space-y-6">
+              {comparisonPoints.map((point) => (
+                <div class="bg-white rounded-xl p-5 border border-border-light">
+                  <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-brand-navy/10 flex items-center justify-center">
+                      <svg class="w-5 h-5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-medium text-text-primary mb-1">{point.title}</h3>
+                      <p class="text-sm text-text-secondary mb-2">{point.description}</p>
+                      <span class="text-xs text-brand-navy font-medium">Best: {point.best}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Image -->
+          <div class="aspect-square rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80"
+              alt="Drywall texture application by Property Pros"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center mb-12">
+          <span class="section-label">What We Do</span>
+          <h2 class="section-title mt-4">Our Texture Services</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center p-6">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">New Application</h3>
+            <p class="text-text-secondary text-sm">Fresh texture application for new construction, additions, and renovations.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Texture Matching</h3>
+            <p class="text-text-secondary text-sm">Expert matching of existing textures for seamless repairs and patches.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Texture Removal</h3>
+            <p class="text-text-secondary text-sm">Safe removal of popcorn ceilings and outdated textures.</p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-text-primary mb-2">Texture Change</h3>
+            <p class="text-text-secondary text-sm">Transform your walls with a completely new texture style.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section section-dark">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <h2 class="section-title text-white mb-4">Not Sure Which Texture?</h2>
+          <p class="text-muted text-lg max-w-xl mx-auto mb-8">
+            Our team can help you choose the perfect texture for your space. Schedule a free consultation and we'll bring samples to your home.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/contact" class="btn btn-primary">
+              Schedule a Consultation
+            </a>
+            <a href="tel:320-743-8388" class="btn btn-outline-light">
+              Call 320-743-8388
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>
