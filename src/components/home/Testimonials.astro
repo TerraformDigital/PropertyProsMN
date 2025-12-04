@@ -21,34 +21,34 @@ try {
   console.error('Error fetching testimonials from Sanity:', error);
 }
 
-// Static fallback testimonials
+// Static fallback testimonials (no external images - uses initials)
 const staticTestimonials = [
   {
     quote: "Property Pros completely transformed our basement. The drywall work was flawless—you can't even tell where the seams are. Highly recommend!",
     author: "Mark T.",
     location: "St. Cloud, MN",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    image: null, // Uses initial placeholder
     rating: 5,
   },
   {
     quote: "Professional, punctual, and the quality exceeded our expectations. They made our home renovation stress-free.",
     author: "Sarah M.",
     location: "Sartell, MN",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    image: null, // Uses initial placeholder
     rating: 5,
   },
   {
     quote: "Great communication throughout the project. The team was respectful of our home and cleaned up every day.",
     author: "Mike Johnson",
     location: "Waite Park, MN",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    image: null, // Uses initial placeholder
     rating: 5,
   },
   {
     quote: "Called for emergency water damage repair and they were out the same day. Excellent work matching our existing texture.",
     author: "Jennifer K.",
     location: "Cold Spring, MN",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    image: null, // Uses initial placeholder
     rating: 5,
   },
 ];
@@ -112,12 +112,10 @@ const hasSanityTestimonials = sanityTestimonials.length > 0;
         ) : (
           staticTestimonials.map((testimonial) => (
             <div class="testimonial-card">
-              <!-- Customer Photo -->
-              <img
-                src={testimonial.image}
-                alt={testimonial.author}
-                class="testimonial-image"
-              />
+              <!-- Customer Photo / Initial -->
+              <div class="testimonial-image bg-brand-navy/10 flex items-center justify-center">
+                <span class="text-4xl font-medium text-brand-navy">{testimonial.author.charAt(0)}</span>
+              </div>
 
               <!-- Stars -->
               <div class="testimonial-stars">

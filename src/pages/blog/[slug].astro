@@ -89,7 +89,7 @@ const staticPosts: Record<string, any> = {
     author: 'Property Pros Team',
     date: 'December 1, 2024',
     readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80',
+    image: '/Completed-Drywall-Job-1.jpeg',
     alt: 'Home maintenance checklist for Central Minnesota homeowners',
   },
   'simple-drywall-fixes-you-can-do-yourself': {
@@ -99,7 +99,7 @@ const staticPosts: Record<string, any> = {
     author: 'Property Pros Team',
     date: 'November 28, 2024',
     readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80',
+    image: '/Mudding-Drywall-2.jpeg',
     alt: 'DIY drywall repair tips',
   },
 };
@@ -178,7 +178,7 @@ const pageDescription = post?.seo?.metaDescription || post?.excerpt || staticPos
             />
           ) : (
             <img
-              src={staticPost?.image || 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80'}
+              src={staticPost?.image || '/Completed-Drywall-Job-1.jpeg'}
               alt={staticPost?.alt || 'Blog post image'}
               class="w-full h-full object-cover"
             />
