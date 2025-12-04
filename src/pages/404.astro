@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const popularLinks = [
+  { href: '/services', label: 'Our Services' },
+  { href: '/projects', label: 'View Projects' },
+  { href: '/contact', label: 'Get a Quote' },
+  { href: '/blog', label: 'Read Our Blog' },
+];
+---
+
+<Layout
+  title="Page Not Found | Property Pros Drywall"
+  description="The page you're looking for doesn't exist. Return to Property Pros Drywall homepage or contact us for help."
+>
+  <section class="min-h-[calc(100vh-5rem)] bg-brand-navy flex items-center justify-center relative overflow-hidden">
+    <!-- Subtle grid background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+
+    <div class="padding-global relative z-10">
+      <div class="container-medium text-center">
+        <!-- Large 404 Text -->
+        <div class="text-[10rem] md:text-[14rem] lg:text-[18rem] font-bold text-white/5 leading-none select-none mb-[-3rem] md:mb-[-5rem]">
+          404
+        </div>
+
+        <!-- Content -->
+        <div class="relative">
+          <!-- Badge -->
+          <div class="hero-badge mx-auto mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+            Error
+          </div>
+
+          <!-- H1 Title -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+            Page Not Found
+          </h1>
+
+          <!-- Description -->
+          <p class="text-muted text-lg max-w-lg mx-auto mb-10">
+            Sorry, the page you're looking for doesn't exist or has been moved. Let's get you back on track.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a href="/" class="btn btn-outline-light">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              Go Home
+            </a>
+            <a href="/contact" class="btn btn-outline-light">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Contact Us
+            </a>
+          </div>
+
+          <!-- Popular Links -->
+          <div class="border-t border-white/10 pt-8">
+            <p class="text-white/50 text-sm mb-4">Or try one of these popular pages:</p>
+            <div class="flex flex-wrap justify-center gap-4">
+              {popularLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="text-white/70 hover:text-white text-sm transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

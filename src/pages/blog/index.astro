@@ -1,0 +1,258 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Contact from '../../components/home/Contact.astro';
+
+// <!-- SCHEMA: Blog, CollectionPage -->
+
+const featuredPosts = [
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'seasonal-home-maintenance-checklist',
+    title: 'Seasonal Home Maintenance Checklist',
+    excerpt: 'Keep your Central Minnesota home in top shape year-round with this comprehensive maintenance guide. From spring inspections to winter prep, we cover everything you need to protect your investment.',
+    category: 'Maintenance',
+    image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80',
+    alt: 'Home maintenance checklist for Central Minnesota homeowners',
+    date: 'December 1, 2024',
+  },
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'simple-drywall-fixes-you-can-do-yourself',
+    title: 'Simple Drywall Fixes You Can Do Yourself',
+    excerpt: 'Small holes and minor drywall damage? Learn which repairs you can tackle yourself and when it\'s time to call in the professionals at Property Pros.',
+    category: 'DIY Tips',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+    alt: 'DIY drywall repair tips for homeowners',
+    date: 'November 28, 2024',
+  },
+];
+
+const articles = [
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'budget-friendly-diy-home-improvements',
+    title: 'Budget-Friendly DIY Home Improvements',
+    excerpt: 'Transform your home without breaking the bank. These affordable projects deliver big impact with minimal investment.',
+    category: 'DIY Tips',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80',
+    alt: 'Budget-friendly home improvement ideas',
+    date: 'November 25, 2024',
+  },
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'preventing-water-damage-to-your-drywall',
+    title: 'Preventing Water Damage to Your Drywall',
+    excerpt: 'Water is drywall\'s worst enemy. Learn how to spot early warning signs and protect your walls from costly damage.',
+    category: 'Maintenance',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    alt: 'Preventing water damage to drywall in Minnesota homes',
+    date: 'November 20, 2024',
+  },
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'painting-tips-for-a-professional-finish',
+    title: 'Painting Tips for a Professional Finish',
+    excerpt: 'Get salon-quality results at home. Our painting experts share their secrets for flawless walls every time.',
+    category: 'Tips',
+    image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80',
+    alt: 'Professional painting tips for homeowners',
+    date: 'November 15, 2024',
+  },
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'what-to-know-before-starting-a-drywall-project',
+    title: 'What to Know Before Starting a Drywall Project',
+    excerpt: 'Planning a drywall project? Here\'s everything you need to consider before picking up that first sheet of drywall.',
+    category: 'DIY Tips',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
+    alt: 'Drywall project planning tips',
+    date: 'November 10, 2024',
+  },
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'choosing-the-right-drywall-texture',
+    title: 'Choosing the Right Drywall Texture',
+    excerpt: 'From smooth to knockdown to orange peel—discover which drywall texture is best for each room in your home.',
+    category: 'Tips',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    alt: 'Different drywall texture options for homes',
+    date: 'November 5, 2024',
+  },
+  {
+    // <!-- REPLACE: Actual blog post content -->
+    slug: 'when-to-repair-vs-replace-drywall',
+    title: 'When to Repair vs. Replace Drywall',
+    excerpt: 'Not sure if you need a simple patch or a full replacement? Learn how to assess drywall damage and make the right call.',
+    category: 'Maintenance',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+    alt: 'Drywall repair vs replacement guide',
+    date: 'November 1, 2024',
+  },
+];
+---
+
+<Layout
+  title="Drywall Tips & News | Property Pros Drywall Blog | Central MN"
+  description="Expert drywall tips, maintenance advice, and project inspiration from Central Minnesota's trusted drywall contractors. Learn DIY fixes, maintenance tips, and more."
+>
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-8 md:pt-24 md:pb-12">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Label -->
+          <div class="hero-badge mx-auto mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd" />
+              <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
+            </svg>
+            Blog
+          </div>
+
+          <!-- H1 Title -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+            News and Updates For You
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-muted text-lg max-w-2xl mx-auto mb-10">
+            Expert tips, advice, and inspiration to help you keep your Central Minnesota home in top condition. From DIY fixes to professional insights.
+          </p>
+
+          <!-- CTA Button -->
+          <a href="#articles" class="btn btn-outline-light">
+            Browse Articles
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED POSTS SECTION -->
+  <section class="bg-brand-navy pb-16 md:pb-24">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {featuredPosts.map((post) => (
+            <a
+              href={`/blog/${post.slug}`}
+              class="group block bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300"
+            >
+              <!-- Image -->
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.alt}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <!-- Content -->
+              <div class="p-6 lg:p-8">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="px-3 py-1 bg-white/20 text-white text-xs font-medium rounded-full">
+                    {post.category}
+                  </span>
+                  <span class="text-white/50 text-sm">{post.date}</span>
+                </div>
+                <h2 class="text-xl lg:text-2xl font-medium text-white mb-3 group-hover:text-accent-blue transition-colors">
+                  {post.title}
+                </h2>
+                <p class="text-white/70 text-sm mb-4 line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <span class="inline-flex items-center gap-2 text-white text-sm font-medium">
+                  Read More
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE GRID SECTION -->
+  <section id="articles" class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="section-label">Our Articles</span>
+          <h2 class="section-title mt-4 mb-4">Latest from our blog</h2>
+          <p class="text-secondary max-w-2xl mx-auto">
+            Stay informed with the latest drywall tips, home maintenance advice, and project inspiration from the Property Pros team.
+          </p>
+        </div>
+
+        <!-- Article Grid -->
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+          {articles.map((article) => (
+            <a
+              href={`/blog/${article.slug}`}
+              class="group block"
+            >
+              <!-- Image -->
+              <div class="aspect-[16/9] rounded-xl overflow-hidden mb-5">
+                <img
+                  src={article.image}
+                  alt={article.alt}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <!-- Content -->
+              <div>
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="px-3 py-1 bg-bg-primary text-text-secondary text-xs font-medium rounded-full">
+                    {article.category}
+                  </span>
+                  <span class="text-text-tertiary text-sm">{article.date}</span>
+                </div>
+                <h3 class="text-lg lg:text-xl font-medium text-text-primary mb-2 group-hover:text-brand-blue transition-colors">
+                  {article.title}
+                </h3>
+                <p class="text-text-secondary text-sm mb-4 line-clamp-2">
+                  {article.excerpt}
+                </p>
+                <span class="inline-flex items-center gap-2 text-brand-navy text-sm font-medium">
+                  Read More
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- Pagination / Load More -->
+        <div class="text-center mt-12">
+          <div class="flex justify-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-brand-navy"></span>
+            <span class="w-3 h-3 rounded-full bg-border-light"></span>
+            <span class="w-3 h-3 rounded-full bg-border-light"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
