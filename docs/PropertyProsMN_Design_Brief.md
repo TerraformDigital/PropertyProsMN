@@ -378,7 +378,7 @@ Build in this order:
 
 ## Files Provided
 
-- Logo: `Property-Pros-Logo.png`
+- Logo: `property-pros-drywall-logo.png`
 - Reference screenshots: HandyHub template pages
 - Style guide: PDF + HTML
 
