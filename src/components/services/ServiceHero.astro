@@ -1,0 +1,68 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  description: string;
+  stats?: Array<{ value: string; label: string }>;
+}
+
+const { label, title, description, stats } = Astro.props;
+
+const defaultStats = [
+  { value: '10y', label: 'Experience' },
+  { value: '100+', label: 'Projects Done' },
+  { value: '10k+', label: 'Sq Ft Installed' },
+  { value: '99%', label: 'Satisfied Clients' },
+];
+
+const displayStats = stats || defaultStats;
+---
+
+<section class="section-hero" style="min-height: auto;">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="py-16 lg:py-20">
+        <!-- Label -->
+        <span class="section-label text-muted">{label}</span>
+
+        <!-- H1 Title -->
+        <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mt-4 mb-6 max-w-3xl">
+          {title}
+        </h1>
+
+        <!-- Description -->
+        <p class="text-muted text-base max-w-2xl mb-8">
+          <!-- REPLACE: Service description -->
+          {description}
+        </p>
+
+        <!-- CTA Button -->
+        <a href="/contact" class="btn btn-outline-light">
+          Contact Us
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+
+        <!-- Stats Row -->
+        <div class="hero-stats mt-12">
+          {displayStats.map((stat) => (
+            <div class="hero-stat">
+              <div class="hero-stat-number">{stat.value}</div>
+              <div class="hero-stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full-width Service Image -->
+<div class="w-full h-64 md:h-80 lg:h-96 relative overflow-hidden">
+  <img
+    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80"
+    alt={title}
+    class="w-full h-full object-cover object-center"
+  />
+</div>

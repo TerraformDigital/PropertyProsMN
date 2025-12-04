@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import ServiceBenefits from '../../components/services/ServiceBenefits.astro';
+import ServiceIncludes from '../../components/services/ServiceIncludes.astro';
+import ServiceFAQ from '../../components/services/ServiceFAQ.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const benefits = [
+  {
+    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+    title: 'Flawless Finish',
+    description: 'Our finishing experts deliver smooth, paint-ready surfaces that showcase your walls at their best.',
+  },
+  {
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+    title: 'Multiple Finish Levels',
+    description: 'We offer Level 1-5 finishes to meet your specific needs, from utility spaces to high-end living areas.',
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Efficient Process',
+    description: 'Our systematic approach ensures quality results while minimizing disruption to your schedule.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Quality Materials',
+    description: 'We use premium joint compounds and tapes for long-lasting results that won\'t crack or peel.',
+  },
+];
+
+const includedServices = [
+  { icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5z', title: 'Taping & Mudding' },
+  { icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4z', title: 'Sanding & Smoothing' },
+  { icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14', title: 'Corner Bead Installation' },
+  { icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21', title: 'Skim Coating' },
+];
+
+const faqs = [
+  {
+    question: 'What are the different finish levels?',
+    answer: 'Level 0-5 finishes range from basic fire-taping (Level 0) to the highest quality smooth finish (Level 5). Most residential projects use Level 4, while Level 5 is recommended for areas with critical lighting.',
+  },
+  {
+    question: 'How long does finishing take to dry?',
+    answer: 'Each coat of joint compound needs 24 hours to dry before sanding and applying the next coat. A typical Level 4 finish requires 3-4 coats, so plan for about a week for the complete finishing process.',
+  },
+  {
+    question: 'Can you finish drywall that someone else installed?',
+    answer: 'Absolutely! We frequently provide finishing-only services for DIY installations or projects where another contractor handled the hanging.',
+  },
+  {
+    question: 'What\'s included in your finishing service?',
+    answer: 'Our finishing service includes taping all joints, applying multiple coats of joint compound, sanding between coats, and preparing surfaces for paint or texture.',
+  },
+];
+---
+
+<Layout
+  title="Drywall Finishing | Property Pros Drywall | Central MN"
+  description="Professional drywall finishing services in St. Cloud and Central Minnesota. Taping, mudding, sanding for smooth, paint-ready walls. Level 1-5 finishes available."
+>
+  <ServiceHero
+    label="Drywall Services"
+    title="Drywall Finishing"
+    description="Professional taping, mudding, and sanding for smooth, paint-ready walls. We offer multiple finish levels to meet your specific project requirements."
+  />
+
+  <ServiceBenefits
+    label="Why Choose Us"
+    title="Benefits of Professional Finishing"
+    subtitle="The quality of your drywall finish makes all the difference in your final paint job. Trust our experts for flawless results."
+    benefits={benefits}
+  />
+
+  <ServiceIncludes
+    label="What We Offer"
+    title="Our finishing services include"
+    description="From basic taping to premium Level 5 finishes, Property Pros delivers the quality finishing your project deserves."
+    services={includedServices}
+  />
+
+  <ServiceFAQ faqs={faqs} />
+
+  <CTABanner />
+
+  <Contact />
+</Layout>

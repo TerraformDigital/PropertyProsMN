@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import ServiceBenefits from '../../components/services/ServiceBenefits.astro';
+import ServiceIncludes from '../../components/services/ServiceIncludes.astro';
+import ServiceFAQ from '../../components/services/ServiceFAQ.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const benefits = [
+  {
+    icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
+    title: 'Custom Textures',
+    description: 'From subtle orange peel to dramatic knockdown, we create the exact texture style you envision for your space.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Expert Application',
+    description: 'Our skilled technicians have mastered various texture techniques to deliver consistent, professional results.',
+  },
+  {
+    icon: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z',
+    title: 'Texture Matching',
+    description: 'Need to match existing texture for repairs? We expertly blend new texture with your current walls.',
+  },
+  {
+    icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+    title: 'Hide Imperfections',
+    description: 'Texture is excellent for concealing minor wall imperfections, creating a beautiful finished appearance.',
+  },
+];
+
+const includedServices = [
+  { icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4z', title: 'Orange Peel Texture' },
+  { icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14', title: 'Knockdown Texture' },
+  { icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21', title: 'Skip Trowel' },
+  { icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5z', title: 'Popcorn Removal' },
+];
+
+const faqs = [
+  {
+    question: 'What texture styles do you offer?',
+    answer: 'We offer a wide range of textures including orange peel, knockdown, skip trowel, smooth finish, and more. We can also match most existing textures for repair work.',
+  },
+  {
+    question: 'Can you remove popcorn ceiling texture?',
+    answer: 'Yes! We specialize in popcorn ceiling removal. We safely remove the old texture, repair any underlying issues, and apply your choice of new texture or smooth finish.',
+  },
+  {
+    question: 'How long does texture application take to dry?',
+    answer: 'Texture typically dries within 24-48 hours depending on humidity and texture type. We recommend waiting at least 24 hours before painting.',
+  },
+  {
+    question: 'Can texture be applied over existing texture?',
+    answer: 'In most cases, yes. However, for best results, we may recommend removing or skim-coating over heavy existing textures. We\'ll assess during your free estimate.',
+  },
+];
+---
+
+<Layout
+  title="Texture Services | Property Pros Drywall | Central MN"
+  description="Professional wall and ceiling texture services in St. Cloud and Central Minnesota. Orange peel, knockdown, skip trowel, and popcorn removal. Free estimates."
+>
+  <ServiceHero
+    label="Drywall Services"
+    title="Texture Services"
+    description="Transform your walls and ceilings with professional texture application. We offer a variety of texture styles to match any aesthetic, from subtle to dramatic."
+  />
+
+  <ServiceBenefits
+    label="Why Choose Us"
+    title="Benefits of Professional Texturing"
+    subtitle="Wall and ceiling texture adds character to your space while helping conceal imperfections. Our experts deliver flawless texture application every time."
+    benefits={benefits}
+  />
+
+  <ServiceIncludes
+    label="What We Offer"
+    title="Our texture services include"
+    description="Whether you want to add texture to new drywall or update existing surfaces, Property Pros has the expertise for beautiful results."
+    services={includedServices}
+  />
+
+  <ServiceFAQ faqs={faqs} />
+
+  <CTABanner />
+
+  <Contact />
+</Layout>

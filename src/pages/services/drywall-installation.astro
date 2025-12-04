@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import ServiceBenefits from '../../components/services/ServiceBenefits.astro';
+import ServiceIncludes from '../../components/services/ServiceIncludes.astro';
+import ServiceFAQ from '../../components/services/ServiceFAQ.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const benefits = [
+  {
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Experienced Installers',
+    description: 'Our skilled drywall installers bring years of experience to every project, ensuring precise cuts and secure hanging.',
+  },
+  {
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+    title: 'Attention to Detail',
+    description: 'Every cut and fastener is placed with care to ensure a flawless foundation for finishing work.',
+  },
+  {
+    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z',
+    title: 'Custom Solutions',
+    description: 'We work with you to create layouts and structures that suit your specific project requirements.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Satisfaction Guaranteed',
+    description: "We're not done until you're completely happy with the finished product.",
+  },
+];
+
+const includedServices = [
+  { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5', title: 'New Construction Drywall' },
+  { icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5z', title: 'Ceiling Installation' },
+  { icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2', title: 'Basement Finishing' },
+  { icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4', title: 'Garage Drywall' },
+];
+
+const faqs = [
+  {
+    question: 'How long does drywall installation take?',
+    answer: 'Installation time varies based on project size. A typical room takes 1-2 days for hanging, with additional time for finishing. We provide accurate timelines during your free estimate.',
+  },
+  {
+    question: 'What type of drywall do you use?',
+    answer: 'We use high-quality drywall appropriate for each application, including standard, moisture-resistant (green board), fire-resistant (Type X), and soundproof options.',
+  },
+  {
+    question: 'Do you handle the finishing too?',
+    answer: 'Yes! We offer complete drywall services from hanging through finishing. We can also provide installation-only services if you prefer to handle finishing separately.',
+  },
+  {
+    question: 'What areas do you serve?',
+    answer: 'We serve St. Cloud and all of Central Minnesota, including Sartell, Sauk Rapids, Waite Park, Cold Spring, and surrounding communities.',
+  },
+];
+---
+
+<Layout
+  title="Drywall Installation | Property Pros Drywall | Central MN"
+  description="Professional drywall installation services in St. Cloud and Central Minnesota. New construction, remodeling, basements, and more. Get a free quote today."
+>
+  <ServiceHero
+    label="Drywall Services"
+    title="Drywall Installation"
+    description="Complete drywall installation for new construction and remodeling projects. Our experienced team delivers precise, professional hanging with attention to detail on every job."
+  />
+
+  <ServiceBenefits
+    label="Why Choose Us"
+    title="Benefits of Professional Installation"
+    subtitle="When you choose Property Pros for your drywall installation, you're choosing a team dedicated to quality craftsmanship and customer satisfaction."
+    benefits={benefits}
+  />
+
+  <ServiceIncludes
+    label="What We Offer"
+    title="Our installation services include"
+    description="Property Pros offers comprehensive drywall installation services for residential and commercial projects throughout Central Minnesota."
+    services={includedServices}
+  />
+
+  <ServiceFAQ faqs={faqs} />
+
+  <CTABanner />
+
+  <Contact />
+</Layout>

@@ -1,0 +1,59 @@
+---
+interface Benefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  label?: string;
+  title: string;
+  subtitle?: string;
+  benefits: Benefit[];
+}
+
+const {
+  label = 'Why Choose Us',
+  title,
+  subtitle,
+  benefits
+} = Astro.props;
+---
+
+<section class="section section-white">
+  <div class="padding-global">
+    <div class="container-large">
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-label">{label}</span>
+        <h2 class="section-title">{title}</h2>
+        {subtitle && (
+          <p class="text-secondary mt-4 max-w-2xl mx-auto">
+            <!-- REPLACE: Benefits subtitle -->
+            {subtitle}
+          </p>
+        )}
+      </div>
+
+      <!-- Benefits Grid - 2x2 -->
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {benefits.map((benefit) => (
+          <div class="flex gap-4 p-6 bg-bg-primary rounded-lg">
+            <div class="card-icon flex-shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={benefit.icon} />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-medium text-text-primary mb-2">{benefit.title}</h3>
+              <p class="text-sm text-secondary">
+                <!-- REPLACE: Benefit description -->
+                {benefit.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
