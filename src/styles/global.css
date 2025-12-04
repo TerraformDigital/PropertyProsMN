@@ -166,7 +166,7 @@ a {
    LAYOUT
    ======================================== */
 .page-wrapper {
-  overflow: clip;
+  overflow-x: clip;
 }
 
 .padding-global {
