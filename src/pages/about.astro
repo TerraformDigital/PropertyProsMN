@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Contact from '../components/home/Contact.astro';
+
+const heroStats = [
+  { value: '10y', label: 'Experience' },
+  { value: '100+', label: 'Team Members' },
+  { value: '1k', label: 'Projects' },
+];
+
+const differentiators = [
+  {
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Transparent Pricing',
+    description: 'No hidden fees or surprises. We provide detailed, upfront estimates so you know exactly what to expect.',
+  },
+  {
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+    title: 'Experienced & Skilled Team',
+    description: 'Our craftsmen bring years of expertise to every project, ensuring quality workmanship you can trust.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Reliable & Trustworthy',
+    description: 'We show up on time, communicate clearly, and stand behind our work with a satisfaction guarantee.',
+  },
+  {
+    icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+    title: 'Customer-Focused Approach',
+    description: 'Your satisfaction is our priority. We listen to your needs and tailor our services to exceed expectations.',
+  },
+];
+
+const teamMembers = [
+  {
+    name: 'John Anderson',
+    role: 'Owner & Lead Contractor',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+  },
+  {
+    name: 'Mike Johnson',
+    role: 'Project Manager',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+  },
+  {
+    name: 'David Williams',
+    role: 'Senior Drywall Specialist',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
+  },
+  {
+    name: 'Chris Martinez',
+    role: 'Finishing Expert',
+    image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&q=80',
+  },
+];
+---
+
+<Layout
+  title="About Property Pros Drywall | Central Minnesota's Trusted Drywall Contractor"
+  description="Learn about Property Pros Drywall, Central Minnesota's trusted drywall contractor. Discover our story, values, and the experienced team behind our quality work."
+>
+  <!-- HERO SECTION -->
+  <section class="section-hero">
+    <div class="hero-wrap">
+      <div class="hero-content">
+        <!-- Label -->
+        <div class="hero-badge">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          About Us
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero-title text-5xl md:text-6xl text-white">
+          Build relationships, one home at a time
+        </h1>
+
+        <!-- Description -->
+        <!-- REPLACE: Company mission statement and intro paragraph -->
+        <p class="text-muted text-base max-w-lg">
+          At Property Pros Drywall, we believe in building more than walls. We build lasting relationships with our clients through honest communication, quality craftsmanship, and a commitment to exceeding expectations on every project.
+        </p>
+
+        <!-- CTA Button -->
+        <div class="mt-4">
+          <a href="#contact" class="btn btn-outline-light">
+            Contact Us
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+          {heroStats.map((stat) => (
+            <div class="hero-stat">
+              <div class="hero-stat-number">{stat.value}</div>
+              <div class="hero-stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <!-- REPLACE: Team photo or work in progress image -->
+        <img
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+          alt="Property Pros Drywall team at work"
+          class="hero-image"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- Section Header -->
+        <div class="section-header mb-12">
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title mb-4">Why work with Property Pros?</h2>
+          <!-- REPLACE: Subtext about company differentiators -->
+          <p class="text-secondary max-w-2xl mx-auto">
+            We're not just another drywall company. Our commitment to quality, transparency, and customer satisfaction sets us apart from the competition.
+          </p>
+        </div>
+
+        <!-- 2x2 Differentiator Cards Grid -->
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {differentiators.map((item, index) => (
+            <div class="bg-bg-primary border border-border-light rounded-xl p-6 flex items-start gap-4 hover:shadow-lg transition-shadow">
+              <div class="flex-shrink-0 w-12 h-12 bg-brand-navy rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon} />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg font-medium text-text-primary mb-2">{item.title}</h3>
+                <p class="text-sm text-text-secondary">{item.description}</p>
+              </div>
+              <button class="flex-shrink-0 w-8 h-8 rounded-full border border-border-light flex items-center justify-center hover:bg-bg-secondary transition-colors" aria-label="Learn more">
+                <svg class="w-4 h-4 text-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" />
+                </svg>
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left: Image -->
+          <div class="aspect-square rounded-xl overflow-hidden">
+            <!-- REPLACE: Owner/team photo -->
+            <img
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
+              alt="Property Pros Drywall owner"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Right: Content -->
+          <div>
+            <span class="section-label">Our Story</span>
+            <h2 class="section-title mb-6">Our story</h2>
+
+            <!-- REPLACE: Company history paragraphs -->
+            <div class="space-y-4 mb-8">
+              <p class="text-secondary">
+                Property Pros Drywall was founded with a simple mission: to provide Central Minnesota homeowners and businesses with exceptional drywall services they can trust. What started as a small operation has grown into one of the region's most respected drywall contractors.
+              </p>
+              <p class="text-secondary">
+                Over the years, we've built our reputation on quality workmanship, honest pricing, and treating every project—whether a small repair or a large commercial build—with the same level of care and attention to detail.
+              </p>
+              <p class="text-secondary">
+                Today, our team of skilled professionals continues to uphold the values that have made us successful: integrity, craftsmanship, and an unwavering commitment to customer satisfaction.
+              </p>
+            </div>
+
+            <!-- Mission Block -->
+            <div class="flex items-start gap-4 p-4 bg-bg-primary rounded-lg mb-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-medium text-text-primary mb-1">Our Mission</h3>
+                <!-- REPLACE: Mission statement -->
+                <p class="text-sm text-text-secondary">To deliver exceptional drywall services that exceed expectations, building lasting relationships through quality, transparency, and trust.</p>
+              </div>
+            </div>
+
+            <!-- Values Block -->
+            <div class="flex items-start gap-4 p-4 bg-bg-primary rounded-lg">
+              <div class="flex-shrink-0 w-10 h-10 bg-brand-navy rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-medium text-text-primary mb-1">Our Values</h3>
+                <!-- REPLACE: Company values -->
+                <p class="text-sm text-text-secondary">Integrity in every interaction. Quality in every detail. Respect for your home, your time, and your investment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE TEAM SECTION -->
+  <section class="section section-dark">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left: Content -->
+          <div>
+            <span class="section-label">Our Team</span>
+            <h2 class="section-title text-white mb-6">Meet Our Team</h2>
+
+            <!-- REPLACE: Team introduction paragraph -->
+            <p class="text-muted mb-8 max-w-md">
+              Our team of dedicated professionals brings decades of combined experience to every project. We're proud of the skilled craftsmen who make Property Pros Drywall the trusted name in Central Minnesota.
+            </p>
+
+            <!-- Big Stat -->
+            <div class="mb-8">
+              <div class="text-6xl font-medium text-white mb-2">100+</div>
+              <div class="text-muted uppercase tracking-wider text-sm">Years of Combined Experience</div>
+            </div>
+
+            <a href="#contact" class="btn btn-outline-light">
+              Work With Us
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: Team Grid -->
+          <div class="team-grid">
+            {teamMembers.map((member) => (
+              <div class="team-card">
+                <!-- REPLACE: Actual team member photos -->
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="team-image"
+                />
+                <div class="team-info">
+                  <!-- REPLACE: Actual team member names and roles -->
+                  <div class="team-name">{member.name}</div>
+                  <div class="team-role">{member.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>
