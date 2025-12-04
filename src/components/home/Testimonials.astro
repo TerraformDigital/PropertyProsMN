@@ -1,78 +1,80 @@
 ---
 const testimonials = [
   {
-    quote: "Property Pros did an outstanding job on our basement renovation. The drywall finish was flawless and they completed the work ahead of schedule.",
-    author: "Sarah M.",
+    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    author: "Mark T.",
     location: "St. Cloud, MN",
-    rating: 5,
-    initials: "SM",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
   },
   {
-    quote: "As a general contractor, I've worked with many drywall subs. Property Pros is by far the most reliable and professional team I've partnered with.",
-    author: "Mike Johnson",
+    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    author: "Sarah M.",
     location: "Sartell, MN",
-    rating: 5,
-    initials: "MJ",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
   },
   {
-    quote: "Fast, clean, and professional. They repaired water damage in our ceiling and you can't even tell there was ever a problem. Highly recommend!",
-    author: "Jennifer K.",
+    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    author: "Mike Johnson",
     location: "Waite Park, MN",
-    rating: 5,
-    initials: "JK",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
   },
   {
-    quote: "The team was punctual, courteous, and did exceptional work on our commercial office space. We'll definitely use them again for future projects.",
-    author: "Robert Chen",
+    quote: "A brief customer testimonial that builds trust and credibility for the business.",
+    author: "Jennifer K.",
     location: "Cold Spring, MN",
-    rating: 5,
-    initials: "RC",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
   },
 ];
 ---
 
-<section class="py-20 lg:py-28 bg-white">
-  <div class="container-custom">
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-brand-blue text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
-        Testimonials
-      </span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-brand-navy">
-        What Our Customers Are Saying
-      </h2>
-    </div>
+<section class="section section-light">
+  <div class="padding-global">
+    <div class="container-large">
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What our customers are saying</h2>
+      </div>
 
-    <!-- Testimonials Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {testimonials.map((testimonial) => (
-        <div class="bg-gray-50 rounded-xl p-6 flex flex-col">
-          <!-- Customer Photo Placeholder -->
-          <div class="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 mx-auto">
-            {testimonial.initials}
+      <!-- Testimonials Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {testimonials.map((testimonial) => (
+          <div class="testimonial-card">
+            <!-- Customer Photo -->
+            <img
+              src={testimonial.image}
+              alt={testimonial.author}
+              class="testimonial-image"
+            />
+
+            <!-- Stars -->
+            <div class="testimonial-stars">
+              {[...Array(5)].map(() => (
+                <svg class="testimonial-star" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+
+            <!-- Quote -->
+            <p class="testimonial-quote">
+              "{testimonial.quote}"
+            </p>
+
+            <!-- Author -->
+            <div>
+              <div class="testimonial-author">{testimonial.author}</div>
+              <div class="testimonial-location">{testimonial.location}</div>
+            </div>
           </div>
+        ))}
+      </div>
 
-          <!-- Stars -->
-          <div class="flex justify-center gap-1 mb-4">
-            {[...Array(5)].map((_, i) => (
-              <svg class={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-            ))}
-          </div>
-
-          <!-- Quote -->
-          <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow text-center">
-            "{testimonial.quote}"
-          </p>
-
-          <!-- Author -->
-          <div class="text-center">
-            <div class="font-semibold text-brand-navy">{testimonial.author}</div>
-            <div class="text-sm text-gray-500">{testimonial.location}</div>
-          </div>
-        </div>
-      ))}
+      <!-- Navigation Dots -->
+      <div class="flex justify-center gap-2 mt-8">
+        <button class="w-3 h-3 rounded-full bg-brand-navy" aria-label="Page 1"></button>
+        <button class="w-3 h-3 rounded-full bg-gray-300" aria-label="Page 2"></button>
+      </div>
     </div>
   </div>
 </section>

@@ -2,86 +2,90 @@
 const services = [
   {
     title: 'Drywall Installation',
-    description: 'Complete drywall installation for new construction and remodeling. Professional hanging with attention to detail.',
+    description: 'A concise description for this service explaining how it helps businesses and customers.',
     icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
     href: '/services/drywall-installation',
   },
   {
     title: 'Drywall Repair',
-    description: 'Expert repair of holes, cracks, and water damage. Seamless patches that blend perfectly with existing walls.',
+    description: 'A concise description for this service explaining how it helps businesses and customers.',
     icon: 'M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z',
     href: '/services/drywall-repair',
   },
   {
-    title: 'Drywall Finishing',
-    description: 'Professional taping, mudding, and sanding for smooth, paint-ready walls. Multiple finish levels available.',
+    title: 'Plaster Patching',
+    description: 'A concise description for this service explaining how it helps businesses and customers.',
     icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    href: '/services/plaster-patching',
+  },
+  {
+    title: 'Drywall Finishing',
+    description: 'A concise description for this service explaining how it helps businesses and customers.',
+    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
     href: '/services/drywall-finishing',
   },
   {
-    title: 'Texture Services',
-    description: 'Custom ceiling and wall textures including knockdown, orange peel, and popcorn ceiling removal.',
-    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
-    href: '/services/texture-services',
-  },
-  {
     title: 'Commercial Drywall',
-    description: 'Large-scale commercial projects with professional crews. Meeting deadlines and exceeding expectations.',
+    description: 'A concise description for this service explaining how it helps businesses and customers.',
     icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
     href: '/services/commercial',
   },
   {
-    title: 'Contractor Services',
-    description: 'B2B partnerships for general contractors and builders. Reliable subcontracting with competitive pricing.',
+    title: 'Handyman Services',
+    description: 'A concise description for this service explaining how it helps businesses and customers.',
     icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
-    href: '/services/contractor-services',
+    href: '/services/handyman',
   },
 ];
 ---
 
-<section class="py-20 lg:py-28 bg-gray-50">
-  <div class="container-custom">
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-brand-blue text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
-        What We Do
-      </span>
-      <h2 class="text-3xl sm:text-4xl font-bold text-brand-navy">
-        Quality Drywall Solutions
-      </h2>
-    </div>
+<section class="section section-light">
+  <div class="padding-global">
+    <div class="container-large">
+      <!-- Section Header -->
+      <div class="section-header">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Quality handyman solutions</h2>
+        <p class="text-secondary mt-4 max-w-2xl mx-auto">
+          A concise description about the services or any information that helps the target audience or customers.
+        </p>
+      </div>
 
-    <!-- Services Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {services.map((service) => (
-        <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow duration-300 group">
-          <!-- Icon -->
-          <div class="w-14 h-14 bg-brand-blue-light rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-blue transition-colors duration-300">
-            <svg class="w-7 h-7 text-brand-blue group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon} />
-            </svg>
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <div class="card">
+            <!-- Icon -->
+            <div class="card-icon">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon} />
+              </svg>
+            </div>
+
+            <!-- Content -->
+            <h3 class="card-title">{service.title}</h3>
+            <p class="card-description">{service.description}</p>
+
+            <!-- Link -->
+            <a href={service.href} class="card-link">
+              Learn More
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
+        ))}
+      </div>
 
-          <!-- Content -->
-          <h3 class="text-xl font-semibold text-brand-navy mb-3">
-            {service.title}
-          </h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">
-            {service.description}
-          </p>
-
-          <!-- Link -->
-          <a
-            href={service.href}
-            class="inline-flex items-center gap-2 text-brand-blue font-medium hover:gap-3 transition-all duration-300"
-          >
-            Learn More
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
-      ))}
+      <!-- View All Services Button -->
+      <div class="text-center mt-12">
+        <a href="/services" class="btn btn-primary">
+          View all services
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>
