@@ -1,0 +1,288 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Contact from '../../components/home/Contact.astro';
+
+// <!-- SCHEMA: ImageGallery -->
+// <!-- SCHEMA: Portfolio/CreativeWork for each project -->
+
+const filterCategories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'residential', label: 'Residential' },
+  { id: 'commercial', label: 'Commercial' },
+  { id: 'contractor', label: 'Contractor' },
+];
+
+const projects = [
+  {
+    // <!-- REPLACE: Actual project photo -->
+    title: 'Basement Finishing',
+    category: 'Residential',
+    categoryId: 'residential',
+    location: 'St. Cloud, MN',
+    service: 'Drywall Installation & Finishing',
+    description: '1,200 sq ft basement transformation with Level 5 finish',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
+    alt: 'Drywall installation project in basement, St. Cloud, MN',
+    href: '/services/drywall-installation',
+  },
+  {
+    // <!-- REPLACE: Actual project photo -->
+    title: 'New Construction Drywall',
+    category: 'Residential',
+    categoryId: 'residential',
+    location: 'Sartell, MN',
+    service: 'Full Home Installation',
+    description: 'Complete drywall installation for 2,800 sq ft new build',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
+    alt: 'New construction drywall installation in Sartell, MN home',
+    href: '/services/drywall-installation',
+  },
+  {
+    // <!-- REPLACE: Actual project photo -->
+    title: 'Office Buildout',
+    category: 'Commercial',
+    categoryId: 'commercial',
+    location: 'Waite Park, MN',
+    service: 'Commercial Drywall',
+    description: '4,500 sq ft office space with metal framing and Type X drywall',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+    alt: 'Commercial office drywall buildout in Waite Park, MN',
+    href: '/services/commercial-drywall',
+  },
+  {
+    // <!-- REPLACE: Actual project photo -->
+    title: 'Water Damage Repair',
+    category: 'Residential',
+    categoryId: 'residential',
+    location: 'Clear Lake, MN',
+    service: 'Drywall Repair',
+    description: 'Emergency water damage restoration with seamless texture match',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+    alt: 'Drywall repair after water damage in Clear Lake, MN',
+    href: '/services/drywall-repair',
+  },
+  {
+    // <!-- REPLACE: Actual project photo -->
+    title: 'Retail Space Renovation',
+    category: 'Commercial',
+    categoryId: 'commercial',
+    location: 'Sauk Rapids, MN',
+    service: 'Commercial Drywall',
+    description: '3,200 sq ft retail storefront renovation with custom finishes',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80',
+    alt: 'Commercial retail space drywall in Sauk Rapids, MN',
+    href: '/services/commercial-drywall',
+  },
+  {
+    // <!-- REPLACE: Actual project photo -->
+    title: 'Custom Texture Work',
+    category: 'Residential',
+    categoryId: 'residential',
+    location: 'St. Cloud, MN',
+    service: 'Texture Services',
+    description: 'Knockdown texture application throughout 1,800 sq ft home',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80',
+    alt: 'Custom knockdown texture drywall finish in St. Cloud, MN',
+    href: '/services/texture-services',
+  },
+];
+
+const featuredTestimonial = {
+  // <!-- REPLACE: Actual customer testimonial -->
+  quote: "Property Pros transformed our outdated basement into a beautiful finished space. Their attention to detail on the drywall finishing was exceptional—you can't even tell where the seams are. Highly recommend for any drywall project in the St. Cloud area!",
+  author: 'Sarah M.',
+  location: 'St. Cloud, MN',
+  project: 'Basement Finishing',
+};
+---
+
+<Layout
+  title="Drywall Projects & Portfolio | Property Pros Drywall | Central MN"
+  description="View our completed drywall projects in Central Minnesota. Professional installation, repair, and finishing for residential and commercial properties in St. Cloud, Clear Lake, and surrounding areas."
+>
+  <!-- SCHEMA: ImageGallery -->
+
+  <!-- HERO SECTION - Shorter height -->
+  <section class="bg-brand-navy py-16 md:py-24">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="text-center max-w-3xl mx-auto">
+          <!-- Label -->
+          <div class="hero-badge mx-auto mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+            </svg>
+            Our Work
+          </div>
+
+          <!-- H1 Title -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+            Projects & Portfolio
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-muted text-lg max-w-2xl mx-auto mb-10">
+            See examples of our professional drywall installation, repair, and finishing work throughout Central Minnesota. From residential basements to commercial buildouts, quality is our signature.
+          </p>
+
+          <!-- Filter Buttons (Static for now) -->
+          <div class="flex flex-wrap justify-center gap-3">
+            {filterCategories.map((cat, index) => (
+              <button
+                class={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  index === 0
+                    ? 'bg-white text-brand-navy'
+                    : 'bg-white/10 text-white hover:bg-white/20'
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- SCHEMA: Portfolio/CreativeWork -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {projects.map((project) => (
+            <a
+              href={project.href}
+              class="group relative block overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300"
+            >
+              <!-- Project Image -->
+              <div class="aspect-[4/3] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.alt}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- Overlay on Hover -->
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <!-- Category Tag -->
+                <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-medium rounded-full w-fit mb-3">
+                  {project.category}
+                </span>
+                <!-- Title -->
+                <h3 class="text-xl font-medium text-white mb-1">{project.title}</h3>
+                <!-- Location with geographic qualifier -->
+                <p class="text-white/70 text-sm mb-3">{project.location}</p>
+                <!-- View Link -->
+                <span class="inline-flex items-center gap-2 text-white text-sm font-medium">
+                  View Project
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+
+              <!-- Default Info (visible when not hovering) -->
+              <div class="p-5 group-hover:opacity-0 transition-opacity duration-300">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2.5 py-1 bg-bg-primary text-text-secondary text-xs font-medium rounded-full">
+                    {project.category}
+                  </span>
+                  <span class="text-text-tertiary text-xs">{project.location}</span>
+                </div>
+                <h3 class="text-lg font-medium text-text-primary mb-1">{project.title}</h3>
+                <p class="text-sm text-text-secondary">{project.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <!-- Load More Button (Static) -->
+        <div class="text-center mt-12">
+          <button class="btn btn-outline">
+            Load More Projects
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL BANNER -->
+  <!-- SCHEMA: Review -->
+  <section class="bg-brand-navy py-16 md:py-20">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <!-- Quote Icon -->
+          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-8">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+
+          <!-- Quote Text -->
+          <!-- REPLACE: Actual customer testimonial -->
+          <blockquote class="text-xl md:text-2xl lg:text-3xl font-light text-white leading-relaxed mb-8 max-w-4xl mx-auto">
+            "{featuredTestimonial.quote}"
+          </blockquote>
+
+          <!-- Author Info -->
+          <div class="flex items-center justify-center gap-4">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+              <span class="text-white font-medium">{featuredTestimonial.author.charAt(0)}</span>
+            </div>
+            <div class="text-left">
+              <div class="text-white font-medium">{featuredTestimonial.author}</div>
+              <div class="text-white/60 text-sm">{featuredTestimonial.location} · {featuredTestimonial.project}</div>
+            </div>
+          </div>
+
+          <!-- Stars -->
+          <div class="flex justify-center gap-1 mt-6">
+            {[1, 2, 3, 4, 5].map(() => (
+              <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <span class="section-label">Start Your Project</span>
+          <h2 class="section-title mt-4 mb-6">Ready to transform your space?</h2>
+          <p class="text-secondary max-w-2xl mx-auto mb-8">
+            Whether you need drywall installation for a new build, repairs after water damage, or a fresh texture for your walls, Property Pros Drywall delivers professional results throughout Central Minnesota. Get your free, no-obligation estimate today.
+          </p>
+          <a href="/contact" class="btn btn-primary">
+            Get a Free Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>
+
+<style>
+  /* Project card custom styles */
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+  }
+</style>
