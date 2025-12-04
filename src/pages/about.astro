@@ -294,7 +294,7 @@ const hasSanityTeam = sanityTeamMembers.length > 0;
                 <div class="team-card">
                   {member.image ? (
                     <img
-                      src={urlFor(member.image).width(400).height(400).url()}
+                      src={`${urlFor(member.image)}?w=400&h=400&fit=crop&auto=format`}
                       alt={member.name}
                       class="team-image"
                       loading="lazy"

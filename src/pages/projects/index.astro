@@ -193,7 +193,7 @@ const featuredTestimonial = sanityTestimonials.length > 0 ? sanityTestimonials[0
                 <div class="aspect-[4/3] overflow-hidden">
                   {project.mainImage && (
                     <img
-                      src={urlFor(project.mainImage).width(800).height(600).url()}
+                      src={`${urlFor(project.mainImage)}?w=800&h=600&fit=crop&auto=format`}
                       alt={project.title}
                       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
@@ -311,7 +311,7 @@ const featuredTestimonial = sanityTestimonials.length > 0 ? sanityTestimonials[0
           <div class="flex items-center justify-center gap-4">
             {featuredTestimonial?.image ? (
               <img
-                src={urlFor(featuredTestimonial.image).width(48).height(48).url()}
+                src={`${urlFor(featuredTestimonial.image)}?w=48&h=48&fit=crop&auto=format`}
                 alt={featuredTestimonial.customerName}
                 class="w-12 h-12 rounded-full object-cover"
               />
