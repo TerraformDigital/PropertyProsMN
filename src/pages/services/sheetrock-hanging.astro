@@ -1,0 +1,97 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import ServiceBenefits from '../../components/services/ServiceBenefits.astro';
+import ServiceIncludes from '../../components/services/ServiceIncludes.astro';
+import ServiceFAQ from '../../components/services/ServiceFAQ.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const benefits = [
+  {
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Professional Sheetrock Crews',
+    description: 'Our experienced crews specialize in efficient, precise sheetrock hanging for projects of all sizes throughout Central Minnesota.',
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Fast Turnaround',
+    description: 'We complete sheetrock hanging quickly without sacrificing quality, keeping your construction project on schedule.',
+  },
+  {
+    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6z',
+    title: 'Precision Cutting',
+    description: 'Every sheet is measured and cut precisely to ensure tight seams, proper electrical box cutouts, and minimal waste.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Quality Guarantee',
+    description: "Properly hung sheetrock is the foundation of great walls. We guarantee our work to meet the highest standards.",
+  },
+];
+
+const includedServices = [
+  { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5', title: 'New Construction Sheetrock' },
+  { icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5z', title: 'Ceiling Sheetrock Installation' },
+  { icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2', title: 'Additions & Remodels' },
+  { icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4', title: 'Basement & Garage Finishing' },
+];
+
+const faqs = [
+  {
+    question: 'What is the difference between sheetrock and drywall?',
+    answer: "Sheetrock is actually a brand name (owned by USG Corporation) that has become synonymous with drywall, much like Kleenex for tissues. They refer to the same product - gypsum panels used to create interior walls and ceilings. We use high-quality sheetrock and drywall products interchangeably based on your project's needs.",
+  },
+  {
+    question: 'How long does sheetrock hanging take?',
+    answer: 'Hanging time depends on the project scope. A single room typically takes a few hours to a day, while a whole house can take several days. We provide accurate timelines during your free estimate based on square footage, ceiling heights, and complexity.',
+  },
+  {
+    question: 'Do you provide the sheetrock or do I need to buy it?',
+    answer: 'We can handle everything including materials, or you can supply your own sheetrock if preferred. When we provide materials, we ensure proper thickness, type (standard, moisture-resistant, fire-rated), and quantity for your project.',
+  },
+  {
+    question: 'What thickness of sheetrock do you recommend?',
+    answer: "For most residential walls, 1/2-inch sheetrock is standard. Ceilings often use 5/8-inch for added rigidity. Fire-rated areas require 5/8-inch Type X sheetrock. We'll recommend the right specifications during your consultation.",
+  },
+  {
+    question: 'Do you hang sheetrock on ceilings too?',
+    answer: 'Ceiling sheetrock installation is one of our specialties. We use proper techniques and equipment to ensure secure fastening and smooth surfaces, whether for standard flat ceilings or more complex layouts.',
+  },
+  {
+    question: 'What areas in Central Minnesota do you serve?',
+    answer: 'We provide sheetrock hanging services throughout Central Minnesota, including St. Cloud, Clear Lake, Sartell, Sauk Rapids, Waite Park, Cold Spring, Monticello, and surrounding communities.',
+  },
+];
+---
+
+<Layout
+  title="Sheetrock Hanging Services | Property Pros Drywall | Central MN"
+  description="Professional sheetrock hanging and installation in St. Cloud and Central Minnesota. New construction, remodels, basements, and more. Get a free quote today."
+>
+  <ServiceHero
+    label="Drywall Services"
+    title="Sheetrock Hanging"
+    description="Expert sheetrock installation for new construction, remodels, and additions. Our skilled crews deliver precise, efficient hanging that provides the perfect foundation for your finished walls."
+  />
+
+  <ServiceBenefits
+    label="Why Choose Us"
+    title="Professional Sheetrock Installation"
+    subtitle="Property Pros brings years of experience to every sheetrock hanging project. From single rooms to entire buildings, we deliver quality workmanship on schedule."
+    benefits={benefits}
+  />
+
+  <ServiceIncludes
+    label="What We Offer"
+    title="Our sheetrock services include"
+    description="Complete sheetrock hanging solutions for residential and commercial projects throughout Central Minnesota."
+    services={includedServices}
+  />
+
+  <ServiceFAQ faqs={faqs} />
+
+  <CTABanner />
+
+  <Contact />
+</Layout>
