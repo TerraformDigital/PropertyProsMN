@@ -1,0 +1,61 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  label?: string;
+  title?: string;
+  faqs: FAQ[];
+}
+
+const {
+  label = 'FAQ',
+  title = 'Frequently Asked Questions',
+  faqs
+} = Astro.props;
+---
+
+<section class="section section-light">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Left - Header -->
+        <div>
+          <span class="section-label">{label}</span>
+          <h2 class="section-title mt-4">{title}</h2>
+          <p class="text-secondary mt-4">
+            <!-- REPLACE: FAQ intro text -->
+            Have questions about our services? Find answers to common questions below, or contact us for more information.
+          </p>
+        </div>
+
+        <!-- Right - FAQ List -->
+        <div class="space-y-4">
+          {faqs.map((faq, index) => (
+            <details class="group bg-white rounded-lg" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="font-medium text-text-primary pr-4" itemprop="name">
+                  <!-- REPLACE: FAQ question -->
+                  {faq.question}
+                </h3>
+                <div class="w-8 h-8 bg-bg-tertiary rounded-lg flex items-center justify-center flex-shrink-0 group-open:rotate-45 transition-transform">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                </div>
+              </summary>
+              <div class="px-6 pb-6" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p class="text-secondary" itemprop="text">
+                  <!-- REPLACE: FAQ answer -->
+                  {faq.answer}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

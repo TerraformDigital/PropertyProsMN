@@ -1,0 +1,74 @@
+---
+interface IncludedService {
+  icon: string;
+  title: string;
+}
+
+interface Props {
+  label?: string;
+  title: string;
+  description: string;
+  services: IncludedService[];
+  image?: string;
+}
+
+const {
+  label = 'What We Offer',
+  title,
+  description,
+  services,
+  image = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80'
+} = Astro.props;
+---
+
+<section class="section-dark section">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left - Image and Text -->
+        <div>
+          <div class="aspect-video rounded-xl overflow-hidden mb-8">
+            <img
+              src={image}
+              alt={title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <span class="section-label">{label}</span>
+          <h2 class="section-title text-white mt-4 mb-4">{title}</h2>
+          <p class="text-muted">
+            <!-- REPLACE: Services included description -->
+            {description}
+          </p>
+          <a href="/contact" class="btn btn-outline-light mt-6">
+            Contact Us
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Right - Service List -->
+        <div class="space-y-4">
+          {services.map((service) => (
+            <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon} />
+                  </svg>
+                </div>
+                <span class="text-white font-medium">{service.title}</span>
+              </div>
+              <div class="w-8 h-8 bg-brand-navy rounded-lg flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

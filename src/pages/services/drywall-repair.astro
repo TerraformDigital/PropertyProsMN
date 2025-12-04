@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import ServiceBenefits from '../../components/services/ServiceBenefits.astro';
+import ServiceIncludes from '../../components/services/ServiceIncludes.astro';
+import ServiceFAQ from '../../components/services/ServiceFAQ.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const benefits = [
+  {
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    title: 'Fast Response',
+    description: 'We understand that drywall damage needs prompt attention. We offer quick scheduling to address your repair needs.',
+  },
+  {
+    icon: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z',
+    title: 'Invisible Repairs',
+    description: 'Our skilled technicians blend repairs seamlessly with your existing walls so you\'ll never know damage was there.',
+  },
+  {
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Affordable Pricing',
+    description: 'Quality repairs don\'t have to break the bank. We offer competitive pricing on all repair services.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Guaranteed Work',
+    description: 'We stand behind our repairs with a satisfaction guarantee on all workmanship.',
+  },
+];
+
+const includedServices = [
+  { icon: 'M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4', title: 'Hole Patching' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Crack Repair' },
+  { icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4', title: 'Water Damage Repair' },
+  { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5', title: 'Corner & Edge Repair' },
+];
+
+const faqs = [
+  {
+    question: 'Can you match my existing wall texture?',
+    answer: 'Yes! Our technicians are skilled at matching various textures including smooth, orange peel, knockdown, and more. We\'ll ensure the repair blends seamlessly.',
+  },
+  {
+    question: 'How much does drywall repair cost?',
+    answer: 'Repair costs vary based on the size and type of damage. Small holes may cost $75-150, while larger repairs or water damage restoration can range higher. We provide free estimates.',
+  },
+  {
+    question: 'Do you repair water-damaged drywall?',
+    answer: 'Yes, we specialize in water damage repair. We\'ll assess the damage, remove affected areas, and install new drywall. Note: The water source should be fixed before repair.',
+  },
+  {
+    question: 'How long do repairs take?',
+    answer: 'Most small to medium repairs can be completed in one day. Larger repairs or those requiring texture matching may take 2-3 days to allow for proper drying between coats.',
+  },
+];
+---
+
+<Layout
+  title="Drywall Repair | Property Pros Drywall | Central MN"
+  description="Expert drywall repair services in St. Cloud and Central Minnesota. Hole patching, crack repair, water damage restoration. Seamless results guaranteed."
+>
+  <ServiceHero
+    label="Drywall Services"
+    title="Drywall Repair"
+    description="Expert repair of holes, cracks, and water damage. Our skilled technicians deliver seamless patches that blend perfectly with your existing walls."
+  />
+
+  <ServiceBenefits
+    label="Why Choose Us"
+    title="Benefits of Professional Repair"
+    subtitle="Don't let damaged walls diminish your home's appearance. Our professional repair services restore your walls to like-new condition."
+    benefits={benefits}
+  />
+
+  <ServiceIncludes
+    label="What We Offer"
+    title="Our repair services include"
+    description="From small nail holes to major water damage, Property Pros has the expertise to handle all your drywall repair needs."
+    services={includedServices}
+  />
+
+  <ServiceFAQ faqs={faqs} />
+
+  <CTABanner />
+
+  <Contact />
+</Layout>

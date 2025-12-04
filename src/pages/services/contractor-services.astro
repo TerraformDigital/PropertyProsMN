@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import ServiceBenefits from '../../components/services/ServiceBenefits.astro';
+import ServiceIncludes from '../../components/services/ServiceIncludes.astro';
+import ServiceFAQ from '../../components/services/ServiceFAQ.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const benefits = [
+  {
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+    title: 'Reliable Partnership',
+    description: 'We become an extension of your team, showing up on time and completing our scope so you can keep your project moving.',
+  },
+  {
+    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+    title: 'Clear Communication',
+    description: 'We provide detailed estimates, clear scheduling, and proactive updates so you always know where things stand.',
+  },
+  {
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Competitive Pricing',
+    description: 'Volume pricing for contractors who bring us consistent work. We keep your projects profitable.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'Quality Guaranteed',
+    description: 'Our work reflects on you. We deliver the quality your clients expect, every time.',
+  },
+];
+
+const includedServices = [
+  { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5', title: 'New Construction' },
+  { icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', title: 'Remodeling Projects' },
+  { icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4', title: 'Multi-Unit Housing' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', title: 'Rush & Priority Jobs' },
+];
+
+const faqs = [
+  {
+    question: 'Do you offer contractor pricing?',
+    answer: 'Yes! We offer competitive pricing for contractors who bring us regular work. Contact us to discuss partnership opportunities and volume pricing.',
+  },
+  {
+    question: 'Can you scale up for larger projects?',
+    answer: 'Absolutely. We have the crew depth to take on large residential developments and can scale our team to meet your project timeline requirements.',
+  },
+  {
+    question: 'How do you handle scheduling with other trades?',
+    answer: 'We work closely with you and other trades to schedule our work efficiently. We understand the construction sequence and coordinate accordingly.',
+  },
+  {
+    question: 'Are you licensed and insured?',
+    answer: 'Yes, we are fully licensed and insured. We can provide certificates of insurance for your records and project requirements.',
+  },
+];
+---
+
+<Layout
+  title="Contractor Services | Property Pros Drywall | Central MN"
+  description="Drywall subcontractor services for builders and general contractors in St. Cloud and Central Minnesota. Reliable, quality work. Contractor pricing available."
+>
+  <ServiceHero
+    label="For Contractors"
+    title="Contractor Services"
+    description="A reliable drywall partner for builders and general contractors. We deliver quality work on schedule, helping you keep your projects on track and your clients happy."
+  />
+
+  <ServiceBenefits
+    label="Why Partner With Us"
+    title="Benefits for Contractors"
+    subtitle="When you need a drywall sub you can count on, Property Pros delivers. We understand the demands of construction schedules and client expectations."
+    benefits={benefits}
+  />
+
+  <ServiceIncludes
+    label="What We Offer"
+    title="Services for contractors"
+    description="From single homes to multi-unit developments, Property Pros provides comprehensive drywall services to keep your projects moving."
+    services={includedServices}
+  />
+
+  <ServiceFAQ faqs={faqs} />
+
+  <CTABanner />
+
+  <Contact />
+</Layout>

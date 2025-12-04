@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const services = [
+  {
+    title: 'Drywall Installation',
+    description: 'Complete drywall installation for new construction and remodeling projects. Professional hanging with attention to detail.',
+    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+    href: '/services/drywall-installation',
+  },
+  {
+    title: 'Drywall Repair',
+    description: 'Expert repair of holes, cracks, and water damage. Seamless patches that blend perfectly with existing walls.',
+    icon: 'M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z',
+    href: '/services/drywall-repair',
+  },
+  {
+    title: 'Drywall Finishing',
+    description: 'Professional taping, mudding, and sanding for smooth, paint-ready walls. Multiple finish levels available.',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    href: '/services/drywall-finishing',
+  },
+  {
+    title: 'Texture Services',
+    description: 'Custom ceiling and wall textures including knockdown, orange peel, and popcorn ceiling removal.',
+    icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
+    href: '/services/texture-services',
+  },
+  {
+    title: 'Commercial Drywall',
+    description: 'Large-scale commercial projects with professional crews. Meeting deadlines and exceeding expectations.',
+    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+    href: '/services/commercial-drywall',
+  },
+  {
+    title: 'Contractor Services',
+    description: 'B2B partnerships for general contractors and builders. Reliable subcontracting with competitive pricing.',
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+    href: '/services/contractor-services',
+  },
+];
+---
+
+<Layout
+  title="Professional Drywall Services in Central Minnesota"
+  description="Property Pros Drywall offers complete drywall services including installation, repair, finishing, texturing, and commercial projects in St. Cloud and Central Minnesota."
+>
+  <!-- Hero Section -->
+  <section class="section-hero" style="min-height: auto;">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="py-16 lg:py-24">
+          <!-- Label -->
+          <span class="section-label text-muted">Our Services</span>
+
+          <!-- H1 Title -->
+          <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl text-white mt-4 mb-6 max-w-4xl">
+            Professional Drywall Services in Central Minnesota
+          </h1>
+
+          <!-- Description -->
+          <p class="text-muted text-base max-w-2xl mb-8">
+            <!-- REPLACE: Services page intro description -->
+            From residential renovations to large-scale commercial construction, Property Pros Drywall delivers expert craftsmanship for every project. We serve homeowners, businesses, and contractors throughout St. Cloud and the surrounding Central Minnesota area.
+          </p>
+
+          <!-- CTA Button -->
+          <a href="/contact" class="btn btn-outline-light">
+            Get a Free Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid Section -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-label">What We Do</span>
+          <h2 class="section-title">Complete Drywall Solutions</h2>
+          <p class="text-secondary mt-4 max-w-2xl mx-auto">
+            <!-- REPLACE: Services grid subtitle -->
+            We offer a full range of drywall services to meet your residential, commercial, and contractor needs. Click on any service to learn more.
+          </p>
+        </div>
+
+        <!-- Services Grid - 2x3 -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <a href={service.href} class="card group block">
+              <!-- Icon -->
+              <div class="card-icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon} />
+                </svg>
+              </div>
+
+              <!-- Content -->
+              <h3 class="card-title">{service.title}</h3>
+              <p class="card-description">
+                <!-- REPLACE: Service card description -->
+                {service.description}
+              </p>
+
+              <!-- Link -->
+              <span class="card-link">
+                Learn More
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <CTABanner />
+
+  <!-- Contact Form -->
+  <Contact />
+</Layout>

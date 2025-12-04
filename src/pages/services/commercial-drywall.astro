@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceHero from '../../components/services/ServiceHero.astro';
+import ServiceBenefits from '../../components/services/ServiceBenefits.astro';
+import ServiceIncludes from '../../components/services/ServiceIncludes.astro';
+import ServiceFAQ from '../../components/services/ServiceFAQ.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import Contact from '../../components/home/Contact.astro';
+
+const benefits = [
+  {
+    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+    title: 'Large-Scale Capability',
+    description: 'We have the crew, equipment, and expertise to handle commercial projects of any size, from office buildouts to retail spaces.',
+  },
+  {
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    title: 'On-Time Completion',
+    description: 'We understand that delays cost money. Our team works efficiently to meet your deadlines without compromising quality.',
+  },
+  {
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    title: 'Code Compliant',
+    description: 'All our commercial work meets local building codes and fire safety requirements, including proper use of Type X drywall.',
+  },
+  {
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z',
+    title: 'Experienced Team',
+    description: 'Our commercial crews are experienced with multi-story buildings, metal framing, and specialized commercial requirements.',
+  },
+];
+
+const includedServices = [
+  { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5', title: 'Office Buildouts' },
+  { icon: 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4', title: 'Retail Spaces' },
+  { icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5z', title: 'Warehouse Partitions' },
+  { icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2', title: 'Tenant Improvements' },
+];
+
+const faqs = [
+  {
+    question: 'Do you work with general contractors?',
+    answer: 'Yes! We regularly partner with general contractors on commercial projects. We can work within your project timeline and coordinate with other trades.',
+  },
+  {
+    question: 'What types of commercial drywall do you install?',
+    answer: 'We install all types including standard, Type X fire-rated, moisture-resistant, impact-resistant, and soundproof drywall depending on your project requirements.',
+  },
+  {
+    question: 'Can you work after hours or on weekends?',
+    answer: 'Yes, we offer flexible scheduling for occupied buildings to minimize disruption to your business operations. After-hours and weekend work is available.',
+  },
+  {
+    question: 'Do you handle metal framing as well?',
+    answer: 'Yes, our commercial services include metal stud framing. We can handle complete interior wall systems from framing through finishing.',
+  },
+];
+---
+
+<Layout
+  title="Commercial Drywall | Property Pros Drywall | Central MN"
+  description="Commercial drywall services in St. Cloud and Central Minnesota. Office buildouts, retail spaces, tenant improvements. Licensed, insured, code-compliant work."
+>
+  <ServiceHero
+    label="Commercial Services"
+    title="Commercial Drywall"
+    description="Professional drywall services for commercial projects of all sizes. From office buildouts to retail spaces, we deliver quality work on schedule and within budget."
+  />
+
+  <ServiceBenefits
+    label="Why Choose Us"
+    title="Benefits of Choosing Property Pros"
+    subtitle="Commercial projects demand reliability, efficiency, and code-compliant work. Property Pros delivers on all fronts for Central Minnesota businesses."
+    benefits={benefits}
+  />
+
+  <ServiceIncludes
+    label="What We Offer"
+    title="Our commercial services include"
+    description="Property Pros provides complete commercial drywall solutions, from metal framing to final finish, for businesses throughout Central Minnesota."
+    services={includedServices}
+  />
+
+  <ServiceFAQ faqs={faqs} />
+
+  <CTABanner />
+
+  <Contact />
+</Layout>
