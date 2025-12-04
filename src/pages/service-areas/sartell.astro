@@ -1,0 +1,361 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Contact from '../../components/home/Contact.astro';
+
+// <!-- SCHEMA: LocalBusiness, Service, AreaServed - Sartell, MN -->
+
+// Sartell specific content
+const cityName = 'Sartell';
+const cityTagline = 'Growing With You';
+
+// Services offered
+const services = [
+  {
+    title: 'New Home Drywall',
+    description: 'Complete drywall packages for Sartell\'s new home construction, working seamlessly with local builders.',
+    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+  },
+  {
+    title: 'Basement Development',
+    description: 'Finishing Sartell basements to add living space for growing families—a specialty in our new construction focus.',
+    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+  },
+  {
+    title: 'Garage Finishing',
+    description: 'Insulated and finished garage walls and ceilings for Sartell homeowners wanting a polished look.',
+    icon: 'M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0',
+  },
+  {
+    title: 'Home Additions',
+    description: 'Drywall for room additions and expansions as Sartell families grow beyond their original floor plans.',
+    icon: 'M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+];
+
+// FAQs specific to Sartell
+const faqs = [
+  {
+    question: 'Do you work with Sartell\'s new home builders?',
+    answer: 'Yes! We partner with several builders actively developing in Sartell. We\'re familiar with the major subdivisions and can often coordinate directly with your builder\'s project timeline. If you\'re buying new construction, ask your builder about adding Property Pros to the project.',
+  },
+  {
+    question: 'Can you help us plan our basement finish for a Sartell home?',
+    answer: 'Absolutely. Finishing basements is one of our most popular services in Sartell, where many homes are built with unfinished lower levels. We can help plan the layout, advise on moisture considerations, and provide a complete drywall solution that adds real living space to your home.',
+  },
+  {
+    question: 'How quickly are you booking projects in Sartell?',
+    answer: 'Sartell is within our core service area, so scheduling is typically 1-2 weeks for residential projects. Larger projects like full basement finishes may require slightly more lead time. We recommend reaching out early if you have a specific deadline.',
+  },
+  {
+    question: 'Do you offer warranties on new construction drywall in Sartell?',
+    answer: 'Yes, all our work comes with a warranty covering workmanship. For new construction, we also coordinate with builder warranties. Any settling cracks or issues that arise within the first year are addressed promptly at no additional cost.',
+  },
+];
+---
+
+<Layout
+  title="Sartell Drywall Contractors | New Construction Specialists | Property Pros"
+  description="Property Pros provides drywall services for Sartell's growing community. New home construction, basement finishing, additions, and repairs for Sartell homeowners."
+>
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy pt-16 pb-12 md:pt-24 md:pb-16">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Content -->
+          <div>
+            <!-- Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm text-white/60 mb-6">
+              <a href="/service-areas" class="hover:text-white transition-colors">Service Areas</a>
+              <span>/</span>
+              <span class="text-white">{cityName}</span>
+            </nav>
+
+            <!-- Label -->
+            <div class="hero-badge mb-6">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              {cityTagline}
+            </div>
+
+            <!-- H1 Title -->
+            <h1 class="hero-title text-4xl md:text-5xl lg:text-5xl text-white mb-6">
+              Drywall Services in Sartell, Minnesota
+            </h1>
+
+            <!-- Intro paragraph -->
+            <p class="text-muted text-lg mb-8">
+              Sartell is one of Minnesota's fastest-growing cities, and Property Pros is growing alongside it. From new subdivision homes to basement finishes for expanding families, we specialize in the drywall needs of Sartell's dynamic community.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-wrap gap-4">
+              <a href="/contact" class="btn btn-primary">
+                Get a Free Estimate
+              </a>
+              <a href="tel:+13205551234" class="btn btn-outline-light">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                Call Us Today
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+              alt="Modern new construction home in Sartell Minnesota"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="section-label">Our Expertise</span>
+          <h2 class="section-title mt-4 mb-4">Drywall Services for Growing Sartell</h2>
+          <p class="text-secondary max-w-2xl mx-auto">
+            As Sartell continues to grow, Property Pros provides the drywall expertise that new and established homeowners need.
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+          {services.map((service) => (
+            <div class="bg-bg-primary rounded-xl p-6 lg:p-8">
+              <div class="w-12 h-12 rounded-lg bg-brand-navy/10 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+                </svg>
+              </div>
+              <h3 class="text-lg font-medium text-text-primary mb-2">{service.title}</h3>
+              <p class="text-text-secondary text-sm">{service.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- View All Services -->
+        <div class="text-center mt-10">
+          <a href="/services" class="btn btn-outline">
+            View All Services
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SARTELL GROWTH SECTION -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Image -->
+          <div class="aspect-[4/3] rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+              alt="Sartell Minnesota neighborhood development"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Content -->
+          <div>
+            <span class="section-label">Community Growth</span>
+            <h2 class="section-title mt-4 mb-6">Building Alongside Sartell</h2>
+            <p class="text-secondary mb-6">
+              Sartell's population has grown significantly over the past two decades, attracting young families and professionals seeking quality schools and a great community. This growth means new homes, and new homes need quality drywall.
+            </p>
+            <p class="text-secondary mb-6">
+              We've worked on dozens of new construction projects in Sartell's expanding neighborhoods, partnering with builders who share our commitment to quality. Whether it's a starter home or a custom build, we deliver the same attention to detail.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-border-light">
+              <div>
+                <div class="text-3xl font-medium text-brand-navy mb-1">50+</div>
+                <div class="text-sm text-text-tertiary">Sartell Homes</div>
+              </div>
+              <div>
+                <div class="text-3xl font-medium text-brand-navy mb-1">10+</div>
+                <div class="text-sm text-text-tertiary">Builder Partners</div>
+              </div>
+              <div>
+                <div class="text-3xl font-medium text-brand-navy mb-1">5★</div>
+                <div class="text-sm text-text-tertiary">Average Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="section-label">Why Us</span>
+          <h2 class="section-title mt-4 mb-4">Why Sartell Chooses Property Pros</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-text-primary mb-2">Fast Turnaround</h3>
+            <p class="text-text-secondary text-sm">We understand builder schedules and keep projects on track.</p>
+          </div>
+
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-text-primary mb-2">Quality Finish</h3>
+            <p class="text-text-secondary text-sm">Level 4 and 5 finishes that look perfect from day one.</p>
+          </div>
+
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-text-primary mb-2">Fair Pricing</h3>
+            <p class="text-text-secondary text-sm">Competitive rates for new construction and repairs alike.</p>
+          </div>
+
+          <div class="bg-bg-primary rounded-xl p-6 text-center">
+            <div class="w-14 h-14 rounded-full bg-brand-navy/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-text-primary mb-2">Local Team</h3>
+            <p class="text-text-secondary text-sm">Neighbors you know and trust, just down the road.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL TESTIMONIAL -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="bg-brand-navy rounded-2xl p-8 md:p-12 text-center">
+          <!-- Stars -->
+          <div class="flex justify-center gap-1 mb-6">
+            {[1, 2, 3, 4, 5].map(() => (
+              <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <blockquote class="text-xl md:text-2xl text-white mb-6 leading-relaxed">
+            "We bought a new home in one of Sartell's new developments and wanted to finish the basement before the kids started school. Property Pros made it happen on a tight timeline. The space is perfect—exactly what we envisioned. Highly recommend!"
+          </blockquote>
+
+          <!-- Attribution -->
+          <div class="text-white/80">
+            <div class="font-medium">The Peterson Family</div>
+            <div class="text-sm text-white/60">Sartell, MN — Basement Finishing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-medium">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <span class="section-label">Questions</span>
+          <h2 class="section-title mt-4 mb-4">Sartell Drywall FAQs</h2>
+          <p class="text-secondary max-w-2xl mx-auto">
+            Common questions from Sartell homeowners and builders.
+          </p>
+        </div>
+
+        <!-- FAQ List -->
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="group bg-bg-primary rounded-xl">
+              <summary class="flex items-center justify-between cursor-pointer p-6 list-none">
+                <h3 class="text-lg font-medium text-text-primary pr-4">{faq.question}</h3>
+                <span class="flex-shrink-0 w-8 h-8 rounded-full bg-white flex items-center justify-center group-open:rotate-45 transition-transform">
+                  <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-6 pb-6">
+                <p class="text-text-secondary">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEARBY AREAS -->
+  <section class="section section-light">
+    <div class="padding-global">
+      <div class="container-medium">
+        <div class="text-center">
+          <span class="section-label">Nearby Areas</span>
+          <h2 class="section-title mt-4 mb-6">Also Serving Communities Near Sartell</h2>
+          <p class="text-secondary mb-8">
+            Sartell is conveniently located within our Central Minnesota service area.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <a href="/service-areas/clear-lake" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Clear Lake
+            </a>
+            <a href="/service-areas/st-cloud" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              St. Cloud
+            </a>
+            <a href="/service-areas/sauk-rapids" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Sauk Rapids
+            </a>
+            <a href="/service-areas/waite-park" class="px-4 py-2 bg-white text-text-primary text-sm font-medium rounded-full hover:bg-brand-navy hover:text-white transition-colors shadow-sm">
+              Waite Park
+            </a>
+          </div>
+
+          <a href="/service-areas" class="btn btn-outline">
+            View All Service Areas
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <Contact />
+</Layout>
