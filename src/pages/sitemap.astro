@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sitemapSections = [
+  {
+    title: 'Main Pages',
+    links: [
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About Us' },
+      { href: '/contact', label: 'Contact' },
+    ],
+  },
+  {
+    title: 'Services',
+    links: [
+      { href: '/services', label: 'All Services' },
+      { href: '/services/drywall-installation', label: 'Drywall Installation' },
+      { href: '/services/drywall-repair', label: 'Drywall Repair' },
+      { href: '/services/drywall-finishing', label: 'Drywall Finishing' },
+      { href: '/services/texture-services', label: 'Texture Services' },
+      { href: '/services/commercial-drywall', label: 'Commercial Drywall' },
+      { href: '/services/contractor-services', label: 'Contractor Services' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { href: '/projects', label: 'Projects & Portfolio' },
+      { href: '/blog', label: 'Blog' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { href: '/privacy', label: 'Privacy Policy' },
+      { href: '/terms', label: 'Terms of Service' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Sitemap | Property Pros Drywall"
+  description="Navigate Property Pros Drywall website. Find all pages including services, projects, blog, and contact information."
+>
+  <!-- HERO SECTION -->
+  <section class="bg-brand-navy py-16 md:py-20">
+    <div class="padding-global">
+      <div class="container-medium text-center">
+        <h1 class="hero-title text-4xl md:text-5xl text-white mb-4">
+          Sitemap
+        </h1>
+        <p class="text-muted">
+          Find everything on our website
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="section section-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {sitemapSections.map((section) => (
+            <div>
+              <h2 class="text-lg font-medium text-text-primary mb-4 pb-2 border-b border-border-light">
+                {section.title}
+              </h2>
+              <ul class="space-y-3">
+                {section.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-text-secondary hover:text-brand-blue transition-colors inline-flex items-center gap-2"
+                    >
+                      <svg class="w-4 h-4 text-text-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-16 pt-8 border-t border-border-light text-center">
+          <p class="text-text-secondary mb-4">
+            Can't find what you're looking for?
+          </p>
+          <a href="/contact" class="btn btn-primary">
+            Contact Us
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
