@@ -587,24 +587,15 @@ a {
    CARDS
    ======================================== */
 .card {
-  background-color: transparent;
-  border: 1px solid transparent;
+  background-color: var(--brand-white);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: all var(--transition-base);
 }
 
-/* Checkerboard pattern - every other card has bg */
-.card:nth-child(3n+1),
-.card:nth-child(3n+3) {
-  background-color: var(--brand-white);
-  border-color: var(--border-light);
-}
-
-/* On hover - all cards get the filled style */
+/* On hover - cards get shadow */
 .card:hover {
-  background-color: var(--brand-white);
-  border-color: var(--border-light);
   box-shadow: var(--shadow-lg);
 }
 
