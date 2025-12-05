@@ -530,6 +530,23 @@ a {
 .section-dark {
   background-color: var(--bg-tertiary);
   color: var(--brand-white);
+  position: relative;
+}
+
+.section-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/pattern-grid.svg');
+  background-repeat: repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section-dark > .padding-global {
+  position: relative;
+  z-index: 2;
 }
 
 .section-light {
